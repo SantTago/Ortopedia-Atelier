@@ -687,12 +687,12 @@
                     </h3>
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Início</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Contato</a></li>
+                        <li><a href="NossaHistória.html" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
+                        <li><a href="Equipe.html" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
+                        <li><a href="Próteses Estéticas.html" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
+                        <li><a href="Órteses Sob Medida.html" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
+                        <li><a href="Reabilitação.html" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
+                    
                     </ul>
                 </div>
                 
@@ -702,13 +702,12 @@
                         <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
                     </h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Inferior</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Superior</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Inferior</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Superior</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Tronco</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Fisioterapia</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Avaliação Especializada</a></li>
+                        <li><a href="Próteses de Membro Inferior.html" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Inferior</a></li>
+                        <li><a href="Próteses de Membro Superior.html" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Superior</a></li>
+                        <li><a href="Órteses de Membro Inferior.html" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Inferior</a></li>
+                        <li><a href="Órteses de Membro Superior.html" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Superior</a></li>
+                        <li><a href="Órteses de Tronco.html" class="text-gray-300 hover:text-primary transition-colors">Órteses de Tronco</a></li>
+                    
                     </ul>
                 </div>
                 
@@ -724,7 +723,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-primary"></i>
-                            <span>(85) 9.9645-990</span>
+                            <span class="text-gray-300">(85) 9.9645-990</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-primary"></i>
@@ -740,7 +739,7 @@
             
             <div class="border-t border-gray-700 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Ortopedia Atelier. Todos os direitos reservados.</p>
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
                     <div class="flex space-x-6">
                         <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Política de Privacidade</a>
                         <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Termos de Uso</a>
@@ -789,131 +788,8 @@
                 }
             });
         });
-        
-        // Team Filter
-        const filterButtons = document.querySelectorAll('.filter-button');
-        const teamMembers = document.querySelectorAll('.team-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filter = button.getAttribute('data-filter');
-                
-                teamMembers.forEach(member => {
-                    if (filter === 'all' || member.getAttribute('data-category') === filter) {
-                        member.classList.remove('hidden-team-member');
-                    } else {
-                        member.classList.add('hidden-team-member');
-                    }
-                });
-            });
-        });
-        
-        // Animate elements when they come into view
-        function handleIntersection(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }
-        
-        const observer = new IntersectionObserver(handleIntersection, {
-            root: null,
-            threshold: 0.1
-        });
-        
-        document.querySelectorAll('.team-card').forEach(item => {
-            observer.observe(item);
-        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9498d19e6576ba13',t:'MTc0ODg4Njg5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'947246ed10e1ba11',t:'MTc0ODQ4Mjc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-------------------------------------------------------------------------------------->
-<style>
-    .py-16 {
-            padding-top: 0rem;
-            padding-bottom: 0rem;
-        }
-      .top-header {
-            background-color: #273353;
-        }
-        
-        .main-header {
-            background-color: white;
-        }
-        
-        .footer {   
-            background-color: #273353;
-        }
-        
-        .footer-bottom {
-            background-color: #1a2339;
-        }
 
-</style>
-<footer class="bg-[#273353] text-white py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="flex items-center mb-4">
-                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
-                </div>
-                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
-                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
-                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
-                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Contato</h3>
-                <ul class="space-y-2">
-                    <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
-                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
-                        <span>(85)9.9964-5990</span> </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
-                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
-
-<!-------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------->
