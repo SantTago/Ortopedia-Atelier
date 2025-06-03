@@ -749,43 +749,67 @@
 <body>
     <!-- Top Header -->
     <div class="top-header text-white py-2">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
-                    <div class="flex items-center">
-                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
-                        <span>(85)9.9964-5990</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope mr-2 text-primary"></i>
-                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
-                    </div>
+        <div class="top-header hidden md:block text-white py-2">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                    <span>(85)9.9964-5990</span>
                 </div>
-                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
-                    <div class="flex items-center">
-                        <i class="far fa-clock mr-2 text-primary"></i>
-                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
-                    </div>
-                    <div class="flex space-x-3 mt-2 md:mt-0">
-                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
-                    </div>
+                <div class="flex items-center">
+                    <i class="fas fa-envelope mr-2 text-primary"></i>
+                    <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                <div class="flex items-center">
+                    <i class="far fa-clock mr-2 text-primary"></i>
+                    <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                </div>
+                <div class="flex space-x-3 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
 
     <!-- Main Header -->
     <header class="main-header shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <div class="text-2xl md:text-3xl font-bold">
-                        <span class="text-secondary">Ortopedia</span>
-                        <span class="text-primary">Atelier</span>
+                    <!-------------------------------------------------->
+
+                    <div class="logo-container">
+                        <img src="Logo.png" alt="Logo Ortopedia Atelier" class="logo-img">
                     </div>
+
+                    <style>
+                        .logo-container {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .logo-img {
+                        height: 48px;
+                        max-width: 100%;
+                    }
+ .py-16 {
+    padding-top: 0rem;
+    padding-bottom: 0rem
+0px
+;
+}
+                    </style>
+
+<!-------------------------------------------------->
                 </div>
                 
                 <!----------------------------------------------------------------->              
@@ -834,7 +858,8 @@
                 </nav>
                 
                 
-                <!-- Botão de menu mobile -->
+<!------------------------------------------------------------------------------------------->
+                 <!-- Botão de menu mobile -->
                 <div class="lg:hidden">
                     <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -850,10 +875,28 @@
         <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
             <div class="p-4 border-b border-gray-200">
                 <div class="flex justify-between items-center">
-                    <div class="text-2xl font-bold">
-                        <span class="text-secondary">Ortopedia</span>
-                        <span class="text-primary">Atelier</span>
+
+<!-------------------------------------------------->
+
+                    <div class="logo-container">
+                        <img src="Logo.png" alt="Logo Ortopedia Atelier" class="logo-img">
                     </div>
+
+                    <style>
+                        .logo-container {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .logo-img {
+                        height: 48px;
+                        max-width: 100%;
+                    }
+
+                    </style>
+
+<!-------------------------------------------------->
+
                     <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -869,9 +912,9 @@
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="mobile-dropdown-content pl-4">
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                        <a href="NossaHistória.html" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="Equipe.html" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="Infraestrutura.html" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
                     </div>
                 </div>
                 <div class="mobile-dropdown border-b border-gray-100">
@@ -880,10 +923,10 @@
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="mobile-dropdown-content pl-4">
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                        <a href="Próteses de Membro Inferior.html" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="Próteses de Membro Superior.html" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="Próteses Estéticas.html" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
+                        <a href="Próteses Funcionais.html" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
                     </div>
                 </div>
                 <div class="mobile-dropdown border-b border-gray-100">
@@ -892,28 +935,29 @@
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="mobile-dropdown-content pl-4">
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
-                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                        <a href="Órteses de Membro Inferior.html" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
+                        <a href="Órteses de Membro Superior.html" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="Órteses de Tronco.html" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
+                        <a href="Órteses Sob Medida.html" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
                     </div>
                 </div>
-                <a href="#" class="block py-2 text-primary font-medium border-b border-gray-100">Reabilitação</a>
-                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
-                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
-                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
-                <div class="mt-6">
-                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
-                </div>
+                <a href="Reabilitação.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="Convênios.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="Blog.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+              
+               
                 <div class="mt-6 flex justify-center space-x-4">
                     <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
     </header>
+
+
+
+
+<!------------------------------------------------------------------------------------------->
 
     <!-- Page Header -->
     <div class="bg-secondary py-16 md:py-24">
@@ -1390,7 +1434,7 @@
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
-                            <span class="text-gray-300">Av. Paulista, 1000, Bela Vista<br>São Paulo - SP, 01310-100</span>
+                            <span class="text-gray-300">R. Carlos Vasconcelos, 2140 - Aldeota, <br>Fortaleza - CE, 60115-044</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-primary"></i>
