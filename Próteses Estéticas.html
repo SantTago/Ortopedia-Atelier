@@ -1,0 +1,1163 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próteses Estéticas - Ortopedia Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFDF',
+                        secondary: '#273353',
+                        light: '#ffffff',
+                        primaryLight: '#7fdff1',
+                        primaryDark: '#0099b3',
+                        secondaryLight: '#3a4b73',
+                        secondaryDark: '#1a2339',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .dropdown-menu {
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+        
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .prosthetic-card {
+            transition: all 0.3s ease;
+        }
+        
+        .prosthetic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: #00BFDF;
+        }
+        
+        .tab-button.active::after {
+            width: 100%;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+        
+        .accordion-button {
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-button.active {
+            color: #00BFDF;
+        }
+        
+        .accordion-button .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-button.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+        
+        .process-number {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .process-number {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(39, 51, 83, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .feature-card:hover {
+            border-color: #00BFDF;
+            transform: translateY(-5px);
+        }
+        
+        .technology-item {
+            transition: all 0.3s ease;
+        }
+        
+        .technology-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .technology-item:hover .technology-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .technology-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .benefit-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #00BFDF;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .before-after-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .before-after-slider .before,
+        .before-after-slider .after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .before-after-slider .before {
+            clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+        }
+        
+        .before-after-slider .slider {
+            position: absolute;
+            top: 0;
+            left: var(--position);
+            width: 4px;
+            height: 100%;
+            background-color: white;
+            cursor: ew-resize;
+        }
+        
+        .before-after-slider .slider-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #273353;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header text-white py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                        <span>(85)9.9964-5990</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl md:text-3xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                </div>
+                
+                <!----------------------------------------------------------------->              
+                <!-- Menu para desktop -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-secondary font-medium hover:text-primary">Início</a>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Quem Somos
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
+                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                            <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Próteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Próteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Inferior</a>
+                            <a href="Próteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Superior</a>
+                            <a href="Próteses Estéticas.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Estéticas</a>
+                            <a href="Próteses Funcionais.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Funcionais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Órteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Órteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Inferior</a>
+                            <a href="Órteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Superior</a>
+                            <a href="Órteses de Tronco.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Tronco</a>
+                            <a href="Órteses Sob Medida.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses Sob Medida</a>
+                        </div>
+                    </div>
+                    <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
+                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
+                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                </nav>
+                
+                
+                <!-- Botão de menu mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <a href="index.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Início</a>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Quem Somos</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Próteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-primary font-medium">Próteses Estéticas</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Órteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
+                <div class="mt-6">
+                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-secondary py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Próteses Estéticas</h1>
+                <div class="flex items-center justify-center text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="hover:text-primary transition-colors">Próteses</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-primary">Próteses Estéticas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Intro Section -->
+            <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Arte e Tecnologia para Restaurar sua Autoconfiança</h2>
+                <p class="text-gray-700 mb-6">Na Ortopedia Atelier, desenvolvemos próteses estéticas de alta fidelidade que combinam arte, ciência e tecnologia avançada para criar soluções personalizadas que reproduzem com perfeição a aparência natural do membro ausente.</p>
+                <p class="text-gray-700">Nossas próteses estéticas são confeccionadas com materiais de alta qualidade e acabamento hiperrealista, proporcionando não apenas uma aparência indistinguível de um membro natural, mas também conforto e durabilidade para o uso diário.</p>
+            </div>
+            
+            <!-- Types of Aesthetic Prosthetics -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in animate-delay-1">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Tipos de Próteses Estéticas</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Oferecemos diferentes tipos de próteses estéticas para atender às necessidades específicas de cada paciente, considerando o nível de amputação, estilo de vida e preferências pessoais.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Prosthetic Type 1 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses de Silicone Hiperrealistas</h3>
+                            <p class="text-gray-700 mb-4">Confeccionadas com silicone médico de alta qualidade, reproduzem com perfeição detalhes como cor da pele, textura, unhas, pelos e até mesmo veias, proporcionando um resultado extremamente realista.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Personalização completa de cor e textura</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Detalhes anatômicos precisos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acabamento hiperrealista</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Prosthetic Type 2 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses Parciais de Dedos e Mãos</h3>
+                            <p class="text-gray-700 mb-4">Desenvolvidas para amputações parciais de dedos, mãos ou pés, estas próteses se encaixam perfeitamente sobre o membro residual, restaurando a aparência completa e natural.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Encaixe personalizado e confortável</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Transição imperceptível com o membro residual</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Preservação da sensibilidade residual</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Prosthetic Type 3 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses Faciais e Auriculares</h3>
+                            <p class="text-gray-700 mb-4">Especializadas na reconstrução de partes do rosto, como nariz, orelhas e regiões orbitais, estas próteses são confeccionadas com extremo cuidado para restaurar a harmonia facial.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Modelagem 3D precisa</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistemas de fixação discretos e seguros</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Integração com implantes osseointegrados</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Prosthetic Type 4 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses Estético-Funcionais</h3>
+                            <p class="text-gray-700 mb-4">Combinam a aparência natural das próteses estéticas com elementos funcionais, permitindo a realização de movimentos básicos sem comprometer a estética realista.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Equilíbrio entre estética e funcionalidade</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Articulações discretas e eficientes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Revestimento estético de alta qualidade</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Prosthetic Type 5 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses Personalizadas para Crianças</h3>
+                            <p class="text-gray-700 mb-4">Desenvolvidas especialmente para o público infantil, com design lúdico e colorido, materiais leves e resistentes, adaptáveis ao crescimento da criança.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Designs coloridos e temáticos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Materiais leves e resistentes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistema modular para acompanhar o crescimento</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Prosthetic Type 6 -->
+                    <div class="prosthetic-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Próteses para Atividades Específicas</h3>
+                            <p class="text-gray-700 mb-4">Desenvolvidas para uso em situações específicas, como natação, exposição ao sol ou atividades sociais, com materiais e acabamentos adaptados para cada necessidade.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Materiais resistentes à água e ao sol</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Designs específicos para cada atividade</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Fácil colocação e remoção</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Materials and Technology Section -->
+            <div class="mb-20 bg-gray-50 py-16 px-4 md:px-8 rounded-xl">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12 animate-fade-in">
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Materiais e Tecnologias Avançadas</h2>
+                        <p class="text-gray-700 max-w-3xl mx-auto">Utilizamos os mais avançados materiais e tecnologias disponíveis para criar próteses estéticas de alta fidelidade que proporcionam conforto, durabilidade e aparência natural.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Technology Item 1 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-1">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-cube text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Escaneamento 3D</h3>
+                            <p class="text-gray-700">Utilizamos scanners 3D de alta precisão para capturar todos os detalhes anatômicos do membro contralateral, garantindo simetria perfeita e encaixe anatômico personalizado.</p>
+                        </div>
+                        
+                        <!-- Technology Item 2 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-2">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-paint-brush text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Pigmentação Intrínseca</h3>
+                            <p class="text-gray-700">Técnica avançada de coloração que incorpora pigmentos no interior do silicone, criando uma aparência natural e duradoura que não desbota com o tempo ou uso.</p>
+                        </div>
+                        
+                        <!-- Technology Item 3 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-3">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-flask text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Silicone Médico</h3>
+                            <p class="text-gray-700">Utilizamos silicone médico de alta qualidade, hipoalergênico e biocompatível, que proporciona textura e elasticidade semelhantes à pele humana, além de durabilidade superior.</p>
+                        </div>
+                        
+                        <!-- Technology Item 4 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-1">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-print text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Impressão 3D</h3>
+                            <p class="text-gray-700">Utilizamos impressoras 3D de alta resolução para criar moldes e componentes personalizados com precisão milimétrica, garantindo o encaixe perfeito e conforto máximo.</p>
+                        </div>
+                        
+                        <!-- Technology Item 5 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-2">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-microscope text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Microdetalhamento</h3>
+                            <p class="text-gray-700">Técnicas artesanais avançadas que permitem reproduzir detalhes minúsculos como impressões digitais, linhas da palma da mão, textura da pele e até mesmo veias e manchas naturais.</p>
+                        </div>
+                        
+                        <!-- Technology Item 6 -->
+                        <div class="technology-item bg-white rounded-lg shadow-lg p-6 text-center animate-fade-in animate-delay-3">
+                            <div class="technology-icon w-16 h-16 rounded-full bg-gray-100 text-secondary flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-magnet text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary mb-3">Sistemas de Fixação Avançados</h3>
+                            <p class="text-gray-700">Desenvolvemos sistemas de fixação discretos e eficientes, incluindo adesivos médicos, sistemas de vácuo e fixação magnética, garantindo segurança e conforto durante o uso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Benefits Section -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Benefícios das Próteses Estéticas</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Conheça os principais benefícios que nossas próteses estéticas podem proporcionar para sua qualidade de vida e bem-estar.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-1">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-smile text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Recuperação da Autoestima</h3>
+                        </div>
+                        <p class="text-gray-700">Nossas próteses estéticas ajudam a restaurar a confiança e a autoestima, permitindo que você se sinta confortável em situações sociais e profissionais, sem preocupações com a aparência.</p>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-2">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Aparência Natural</h3>
+                        </div>
+                        <p class="text-gray-700">O acabamento hiperrealista e a personalização completa garantem uma aparência indistinguível de um membro natural, com detalhes como cor da pele, textura, unhas e até mesmo pelos.</p>
+                    </div>
+                    
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-3">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Conforto e Bem-estar</h3>
+                        </div>
+                        <p class="text-gray-700">Desenvolvidas com materiais leves e biocompatíveis, nossas próteses proporcionam conforto durante o uso prolongado, sem causar irritações ou desconforto na pele.</p>
+                    </div>
+                    
+                    <!-- Benefit 4 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-1">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Proteção do Membro Residual</h3>
+                        </div>
+                        <p class="text-gray-700">As próteses estéticas ajudam a proteger o membro residual contra impactos, exposição solar e outros fatores externos que poderiam causar danos ou desconforto.</p>
+                    </div>
+                    
+                    <!-- Benefit 5 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-2">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-tshirt text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Liberdade de Vestimenta</h3>
+                        </div>
+                        <p class="text-gray-700">Com uma prótese estética de alta qualidade, você pode usar qualquer tipo de roupa com confiança, sem preocupações com a visibilidade da prótese ou limitações no guarda-roupa.</p>
+                    </div>
+                    
+                    <!-- Benefit 6 -->
+                    <div class="benefit-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-3">
+                        <div class="flex items-center mb-4">
+                            <div class="benefit-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Integração Social</h3>
+                        </div>
+                        <p class="text-gray-700">A aparência natural das próteses estéticas facilita a integração social e profissional, reduzindo o estigma e permitindo interações mais naturais e confortáveis em todos os ambientes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Process Section -->
+            <div class="mb-20">
+                <div class="text-center mb-16 animate-fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Nosso Processo de Confecção</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Na Ortopedia Atelier, seguimos um processo meticuloso e personalizado para a confecção de cada prótese estética, garantindo resultados excepcionais e satisfação total do paciente.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Step 1 -->
+                    <div class="process-step text-center animate-fade-in animate-delay-1">
+                        <div class="process-number w-16 h-16 rounded-full bg-gray-100 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-6">1</div>
+                        <h3 class="text-lg font-bold text-secondary mb-3">Avaliação Inicial</h3>
+                        <p class="text-gray-700">Realizamos uma avaliação completa do paciente, considerando aspectos físicos, necessidades estéticas e expectativas para o resultado final.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step text-center animate-fade-in animate-delay-2">
+                        <div class="process-number w-16 h-16 rounded-full bg-gray-100 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-6">2</div>
+                        <h3 class="text-lg font-bold text-secondary mb-3">Escaneamento 3D</h3>
+                        <p class="text-gray-700">Utilizamos tecnologia de escaneamento 3D para capturar com precisão todos os detalhes anatômicos necessários para a confecção da prótese.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step text-center animate-fade-in animate-delay-3">
+                        <div class="process-number w-16 h-16 rounded-full bg-gray-100 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-6">3</div>
+                        <h3 class="text-lg font-bold text-secondary mb-3">Modelagem e Prototipagem</h3>
+                        <p class="text-gray-700">Nossa equipe de especialistas desenvolve um modelo digital e cria um protótipo para testes de encaixe e ajustes necessários.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step text-center animate-fade-in animate-delay-4">
+                        <div class="process-number w-16 h-16 rounded-full bg-gray-100 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-6">4</div>
+                        <h3 class="text-lg font-bold text-secondary mb-3">Confecção e Acabamento</h3>
+                        <p class="text-gray-700">Produzimos a prótese com materiais de alta qualidade e realizamos um meticuloso trabalho de acabamento artístico para garantir o máximo realismo.</p>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="process-step text-center animate-fade-in animate-delay-4">
+                        <div class="process-number w-16 h-16 rounded-full bg-gray-100 text-secondary font-bold text-xl flex items-center justify-center mx-auto mb-6">5</div>
+                        <h3 class="text-lg font-bold text-secondary mb-3">Entrega e Acompanhamento</h3>
+                        <p class="text-gray-700">Realizamos a entrega da prótese com orientações de uso e cuidados, além de acompanhamento contínuo para garantir satisfação e adaptação.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center animate-fade-in">
+                    <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-8 py-3 rounded-full font-medium transition-colors">Conheça Nosso Processo Completo</a>
+                </div>
+            </div>
+            
+            <!-- Before and After Section -->
+            <div class="mb-20 bg-gray-50 py-16 px-4 md:px-8 rounded-xl">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12 animate-fade-in">
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Antes e Depois</h2>
+                        <p class="text-gray-700 max-w-3xl mx-auto">Veja alguns exemplos de transformações realizadas com nossas próteses estéticas de alta fidelidade.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Before/After Example 1 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                            <div class="h-64 bg-gray-200 flex items-center justify-center">
+                                <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                    <path d="M13 7h-2v6h6v-2h-4z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-secondary mb-3">Prótese de Mão</h3>
+                                <p class="text-gray-700 mb-4">Prótese estética de mão com detalhes hiperrealistas, incluindo unhas, impressões digitais e coloração personalizada para combinar perfeitamente com a pele do paciente.</p>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Amputação parcial da mão</span>
+                                    <span>Tempo de confecção: 3 semanas</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Before/After Example 2 -->
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                            <div class="h-64 bg-gray-200 flex items-center justify-center">
+                                <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                    <path d="M13 7h-2v6h6v-2h-4z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-secondary mb-3">Prótese Auricular</h3>
+                                <p class="text-gray-700 mb-4">Prótese estética de orelha com detalhes anatômicos precisos e sistema de fixação discreto, proporcionando aparência natural e conforto durante o uso.</p>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Microtia congênita</span>
+                                    <span>Tempo de confecção: 4 semanas</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<style>
+    .py-16 {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+        }
+      .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .footer {   
+            background-color: #273353;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2339;
+        }
+
+</style>
+<footer class="bg-[#273353] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
+                </div>
+                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>(85)9.9964-5990</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-------------------------------------------------------------------------------------->

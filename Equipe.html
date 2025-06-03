@@ -1,0 +1,919 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Equipe - Ortopedia Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFDF',
+                        secondary: '#273353',
+                        light: '#ffffff',
+                        primaryLight: '#7fdff1',
+                        primaryDark: '#0099b3',
+                        secondaryLight: '#3a4b73',
+                        secondaryDark: '#1a2339',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .dropdown-menu {
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+        
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .team-card .overlay-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover .overlay-content {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .filter-button {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-button.active {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .hidden-team-member {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header text-white py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                       <span>(85)9.9964-5990</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl md:text-3xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                </div>
+                
+                <!----------------------------------------------------------------->              
+                <!-- Menu para desktop -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-secondary font-medium hover:text-primary">Início</a>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Quem Somos
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
+                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                            <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Próteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Próteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Inferior</a>
+                            <a href="Próteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Superior</a>
+                            <a href="Próteses Estéticas.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Estéticas</a>
+                            <a href="Próteses Funcionais.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Funcionais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Órteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Órteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Inferior</a>
+                            <a href="Órteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Superior</a>
+                            <a href="Órteses de Tronco.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Tronco</a>
+                            <a href="Órteses Sob Medida.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses Sob Medida</a>
+                        </div>
+                    </div>
+                    <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
+                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
+                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                </nav>
+                
+                
+                <!-- Botão de menu mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <a href="index.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Início</a>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Quem Somos</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Próteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Órteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
+                <div class="mt-6">
+                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-secondary py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Nossa Equipe</h1>
+                <div class="flex items-center justify-center text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="hover:text-primary transition-colors">Quem Somos</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-primary">Equipe</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Intro Section -->
+            <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Conheça os Profissionais da Ortopedia Atelier</h2>
+                <p class="text-gray-700 mb-6">Nossa equipe multidisciplinar é formada por profissionais altamente qualificados e especializados em diferentes áreas da ortopedia e reabilitação. Trabalhamos de forma integrada para oferecer o melhor atendimento e as soluções mais adequadas para cada paciente.</p>
+                <p class="text-gray-700">Todos os nossos profissionais compartilham os mesmos valores: excelência técnica, atendimento humanizado e compromisso com o bem-estar e a qualidade de vida dos pacientes. Conheça abaixo quem faz parte da família Ortopedia Atelier.</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in animate-delay-1">
+                <button class="filter-button active px-6 py-2 rounded-full border border-primary text-secondary hover:bg-primary hover:text-white transition-colors" data-filter="all">Todos</button>
+                <button class="filter-button px-6 py-2 rounded-full border border-primary text-secondary hover:bg-primary hover:text-white transition-colors" data-filter="ortopedista">Ortopedistas</button>
+                <button class="filter-button px-6 py-2 rounded-full border border-primary text-secondary hover:bg-primary hover:text-white transition-colors" data-filter="fisioterapeuta">Fisioterapeutas</button>
+                <button class="filter-button px-6 py-2 rounded-full border border-primary text-secondary hover:bg-primary hover:text-white transition-colors" data-filter="tecnico">Técnicos Ortopédicos</button>
+                <button class="filter-button px-6 py-2 rounded-full border border-primary text-secondary hover:bg-primary hover:text-white transition-colors" data-filter="terapeuta">Terapeutas Ocupacionais</button>
+            </div>
+            
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in" data-category="ortopedista">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Dr. Roberto Almeida</h3>
+                        <p class="text-primary font-medium mb-3">Ortopedista - Diretor Clínico</p>
+                        <p class="text-gray-600 mb-4">Especialista em ortopedia e traumatologia, com mais de 25 anos de experiência. Fundador da Ortopedia Atelier e referência em soluções ortopédicas personalizadas.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1" data-category="ortopedista">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Dra. Carla Santos</h3>
+                        <p class="text-primary font-medium mb-3">Ortopedista - Especialista em Membros Inferiores</p>
+                        <p class="text-gray-600 mb-4">Especializada em cirurgia ortopédica de membros inferiores, com foco em reabilitação pós-cirúrgica e adaptação protética para amputados.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2" data-category="ortopedista">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Dr. Marcos Oliveira</h3>
+                        <p class="text-primary font-medium mb-3">Ortopedista - Especialista em Membros Superiores</p>
+                        <p class="text-gray-600 mb-4">Especializado em cirurgia de mão e membros superiores, com ampla experiência em reabilitação funcional e adaptação protética para membros superiores.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3" data-category="fisioterapeuta">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Dra. Ana Paula Costa</h3>
+                        <p class="text-primary font-medium mb-3">Fisioterapeuta - Coordenadora de Reabilitação</p>
+                        <p class="text-gray-600 mb-4">Especialista em reabilitação neurológica e ortopédica, com foco em adaptação protética e treinamento funcional para pacientes amputados.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in" data-category="fisioterapeuta">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Dr. Ricardo Mendes</h3>
+                        <p class="text-primary font-medium mb-3">Fisioterapeuta - Especialista em Membros Inferiores</p>
+                        <p class="text-gray-600 mb-4">Especializado em reabilitação de membros inferiores, com foco em treino de marcha e adaptação funcional para pacientes com próteses.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1" data-category="tecnico">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Paulo Ferreira</h3>
+                        <p class="text-primary font-medium mb-3">Técnico Ortopédico - Coordenador de Produção</p>
+                        <p class="text-gray-600 mb-4">Especialista em confecção de próteses e órteses, com mais de 20 anos de experiência. Responsável pela coordenação da oficina ortopédica.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 7 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2" data-category="tecnico">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Luiza Gomes</h3>
+                        <p class="text-primary font-medium mb-3">Técnica Ortopédica - Especialista em Próteses</p>
+                        <p class="text-gray-600 mb-4">Especializada em modelagem digital e impressão 3D para próteses personalizadas. Responsável pela inovação tecnológica na confecção de próteses.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 8 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3" data-category="terapeuta">
+                    <div class="relative">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 2c-3.313 0-6 1.79-6 4v2h12v-2c0-2.21-2.687-4-6-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                        <div class="overlay-content absolute inset-0 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-1">Fernanda Lima</h3>
+                        <p class="text-primary font-medium mb-3">Terapeuta Ocupacional</p>
+                        <p class="text-gray-600 mb-4">Especialista em reabilitação funcional e adaptação às atividades diárias. Trabalha com pacientes para maximizar a independência e qualidade de vida.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primaryDark transition-colors">Ver perfil completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Join Our Team Section -->
+            <div class="mt-20 md:mt-32 bg-secondary rounded-lg p-8 md:p-12 animate-fade-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Junte-se à Nossa Equipe</h2>
+                        <p class="text-white opacity-90 mb-6">Estamos sempre em busca de profissionais talentosos e apaixonados por fazer a diferença na vida das pessoas. Se você é um profissional da área de saúde com interesse em ortopedia e reabilitação, venha fazer parte da nossa equipe.</p>
+                        <p class="text-white opacity-90 mb-8">Na Ortopedia Atelier, oferecemos um ambiente de trabalho colaborativo, oportunidades de desenvolvimento profissional e a chance de participar de projetos inovadores que transformam vidas.</p>
+                        <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-8 py-3 rounded-full font-medium transition-colors">Ver Oportunidades</a>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="relative">
+                            <div class="bg-white rounded-tl-3xl rounded-br-3xl p-8 relative z-10">
+                                <h3 class="text-xl font-bold text-secondary mb-4">Benefícios de trabalhar conosco</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Ambiente de trabalho colaborativo e inovador</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Oportunidades de desenvolvimento profissional</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Acesso a tecnologias de ponta</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Participação em projetos inovadores</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Pacote de benefícios competitivo</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="absolute top-4 right-4 w-24 h-24 bg-primary rounded-full opacity-20"></div>
+                            <div class="absolute bottom-4 left-4 w-16 h-16 bg-primary rounded-full opacity-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="text-2xl font-bold mb-6">
+                        <span class="text-white">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Soluções ortopédicas personalizadas com tecnologia de ponta e atendimento humanizado para transformar vidas.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 relative inline-block">
+                        Links Rápidos
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Início</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 relative inline-block">
+                        Serviços
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Inferior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Superior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Inferior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Superior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Tronco</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Fisioterapia</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Avaliação Especializada</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 relative inline-block">
+                        Contato
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-300">Av. Paulista, 1000, Bela Vista<br>São Paulo - SP, 01310-100</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            <span>(85) 9.9645-990</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <span class="text-gray-300">contato@ortopediaatelier.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="far fa-clock mr-3 text-primary"></i>
+                            <span class="text-gray-300">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Ortopedia Atelier. Todos os direitos reservados.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Política de Privacidade</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Termos de Uso</a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Mapa do Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileDropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Mobile Dropdowns
+        mobileDropdownButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (dropdownContent.classList.contains('active')) {
+                    dropdownContent.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    dropdownContent.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Team Filter
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const teamMembers = document.querySelectorAll('.team-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                teamMembers.forEach(member => {
+                    if (filter === 'all' || member.getAttribute('data-category') === filter) {
+                        member.classList.remove('hidden-team-member');
+                    } else {
+                        member.classList.add('hidden-team-member');
+                    }
+                });
+            });
+        });
+        
+        // Animate elements when they come into view
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+        
+        const observer = new IntersectionObserver(handleIntersection, {
+            root: null,
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.team-card').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9498d19e6576ba13',t:'MTc0ODg4Njg5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<style>
+    .py-16 {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+        }
+      .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .footer {   
+            background-color: #273353;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2339;
+        }
+
+</style>
+<footer class="bg-[#273353] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
+                </div>
+                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>(85)9.9964-5990</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-------------------------------------------------------------------------------------->

@@ -1,0 +1,1129 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órteses de Membro Inferior - Ortopedia Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFDF',
+                        secondary: '#273353',
+                        light: '#ffffff',
+                        primaryLight: '#7fdff1',
+                        primaryDark: '#0099b3',
+                        secondaryLight: '#3a4b73',
+                        secondaryDark: '#1a2339',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .dropdown-menu {
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+        
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .orthosis-card {
+            transition: all 0.3s ease;
+        }
+        
+        .orthosis-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: #00BFDF;
+        }
+        
+        .tab-button.active::after {
+            width: 100%;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+        
+        .accordion-button {
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-button.active {
+            color: #00BFDF;
+        }
+        
+        .accordion-button .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-button.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+        
+        .process-number {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .process-number {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(39, 51, 83, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .feature-card:hover {
+            border-color: #00BFDF;
+            transform: translateY(-5px);
+        }
+        
+        .technology-item {
+            transition: all 0.3s ease;
+        }
+        
+        .technology-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .technology-item:hover .technology-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .technology-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .benefit-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #00BFDF;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .comparison-table th {
+            background-color: #273353;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .comparison-table td, .comparison-table th {
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tech-spec-item {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-spec-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tech-spec-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-spec-item:hover .tech-spec-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .activity-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .activity-card:hover .activity-image {
+            transform: scale(1.05);
+        }
+        
+        .activity-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .activity-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+        }
+        
+        .component-card {
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .component-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover .component-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header text-white py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                        <span>(85)9.9964-5990</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl md:text-3xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                </div>
+                
+               <!----------------------------------------------------------------->              
+                <!-- Menu para desktop -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-secondary font-medium hover:text-primary">Início</a>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Quem Somos
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
+                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                            <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Próteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Próteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Inferior</a>
+                            <a href="Próteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Superior</a>
+                            <a href="Próteses Estéticas.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Estéticas</a>
+                            <a href="Próteses Funcionais.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Funcionais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Órteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Órteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Inferior</a>
+                            <a href="Órteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Superior</a>
+                            <a href="Órteses de Tronco.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Tronco</a>
+                            <a href="Órteses Sob Medida.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses Sob Medida</a>
+                        </div>
+                    </div>
+                    <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
+                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
+                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                </nav>
+                
+                
+                <!-- Botão de menu mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <a href="index.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Início</a>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Quem Somos</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Próteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-primary">
+                        <span>Órteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-primary font-medium">Órteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
+                <div class="mt-6">
+                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-secondary py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Órteses de Membro Inferior</h1>
+                <div class="flex items-center justify-center text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="hover:text-primary transition-colors">Órteses</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-primary">Órteses de Membro Inferior</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Intro Section -->
+            <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Suporte e Estabilidade para Membros Inferiores</h2>
+                <p class="text-gray-700 mb-6">Na Ortopedia Atelier, desenvolvemos órteses de membro inferior personalizadas que proporcionam suporte, estabilidade e alinhamento adequado para pés, tornozelos, joelhos e quadris, ajudando na recuperação de lesões, no tratamento de condições crônicas e na prevenção de deformidades.</p>
+                <p class="text-gray-700">Nossas órteses são projetadas com tecnologia avançada e materiais de alta qualidade para oferecer o máximo de conforto, funcionalidade e durabilidade, permitindo que você mantenha sua mobilidade e independência durante o tratamento.</p>
+            </div>
+            
+            <!-- Types of Lower Limb Orthoses -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in animate-delay-1">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Tipos de Órteses de Membro Inferior</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Oferecemos uma ampla variedade de órteses para membros inferiores, desde dispositivos pré-fabricados até soluções totalmente personalizadas, adaptadas às necessidades específicas de cada paciente.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Orthosis Type 1 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses Plantares (Palmilhas)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que se encaixam dentro dos calçados para corrigir problemas biomecânicos, aliviar pressões e proporcionar suporte aos arcos dos pés, melhorando o alinhamento e a distribuição de peso.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Palmilhas para pé plano</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Palmilhas para pé cavo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Palmilhas para fascite plantar</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 2 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses de Tornozelo (AFO)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam o tornozelo e o pé, controlando movimentos indesejados, prevenindo deformidades e melhorando a marcha em pacientes com fraqueza muscular ou instabilidade articular.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">AFO rígida</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">AFO articulada</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">AFO dinâmica</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 3 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses de Joelho (KO)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que proporcionam estabilidade, suporte e alinhamento ao joelho, auxiliando na recuperação de lesões ligamentares, no tratamento de artrose e na prevenção de lesões durante atividades físicas.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Joelheiras estabilizadoras</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses para ligamentos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses para artrose</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 4 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses de Joelho-Tornozelo-Pé (KAFO)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que se estendem do pé até a coxa, proporcionando suporte e estabilidade ao tornozelo, joelho e, em alguns casos, ao quadril, indicados para pacientes com fraqueza muscular significativa.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">KAFO convencional</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">KAFO com trava de joelho</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">KAFO com articulação livre</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 5 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses de Quadril (HO)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam a articulação do quadril, controlando movimentos de abdução, adução, rotação e flexão, utilizados no tratamento de displasia do quadril, pós-operatórios e outras condições.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses para displasia</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses de abdução</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses estabilizadoras</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 6 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses de Quadril-Joelho-Tornozelo-Pé (HKAFO)</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos completos que se estendem do pé até o quadril, proporcionando suporte e estabilidade a todas as articulações dos membros inferiores, indicados para pacientes com comprometimento neurológico severo.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">HKAFO para paralisia cerebral</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">HKAFO para lesão medular</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">HKAFO para distrofias musculares</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Materials and Technology Section -->
+            <div class="mb-20 bg-gray-50 py-16 px-4 md:px-8 rounded-xl">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12 animate-fade-in">
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Materiais e Tecnologias Avançadas</h2>
+                        <p class="text-gray-700 max-w-3xl mx-auto">Utilizamos os materiais mais avançados e tecnologias de ponta para criar órteses de membro inferior que combinam funcionalidade, conforto e durabilidade.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <!-- Material 1 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-1">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-layer-group text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Termoplásticos de Baixa Temperatura</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Materiais que podem ser moldados diretamente sobre o paciente após aquecimento em água quente, permitindo ajustes precisos e personalizados para um encaixe perfeito e confortável.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Moldagem precisa e personalizada</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Leve e confortável</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Fácil ajuste e adaptação</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Material 2 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-2">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-atom text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Fibra de Carbono</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Material ultraleve e de alta resistência que proporciona suporte excepcional com o mínimo de peso, ideal para órteses que exigem rigidez e durabilidade sem comprometer a mobilidade.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Extremamente leve e resistente</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Excelente retorno de energia</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Durabilidade superior</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Material 3 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-1">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-tint text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Silicone Médico</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Material flexível e biocompatível utilizado em interfaces de contato com a pele, proporcionando conforto, amortecimento e distribuição uniforme de pressão, reduzindo o risco de lesões por atrito.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Hipoalergênico e biocompatível</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Excelente distribuição de pressão</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Conforto superior em contato com a pele</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Material 4 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-2">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-cogs text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Articulações Dinâmicas</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Componentes mecânicos avançados que permitem movimentos controlados e assistidos, proporcionando suporte onde necessário e liberdade de movimento onde possível, melhorando a funcionalidade e o conforto.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Movimentos controlados e assistidos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Ajuste preciso de resistência</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Durabilidade e precisão mecânica</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Technology 1 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-1">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-laptop-medical text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Escaneamento 3D</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Tecnologia de digitalização que captura com precisão a anatomia do paciente, permitindo a criação de órteses perfeitamente adaptadas às necessidades individuais, com maior conforto e eficácia.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Precisão milimétrica</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Processo não invasivo e rápido</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Armazenamento digital para ajustes futuros</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Technology 2 -->
+                        <div class="component-card bg-white rounded-lg shadow-lg p-6 animate-fade-in animate-delay-2">
+                            <div class="flex items-center mb-4">
+                                <div class="component-icon bg-gray-100 rounded-full p-3 mr-4 text-secondary">
+                                    <i class="fas fa-print text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-secondary">Impressão 3D</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Tecnologia de fabricação aditiva que permite criar órteses com geometrias complexas e personalizadas, otimizando o peso<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'949926a196d1ba11',t:'MTc0ODg5MDM3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<style>
+    .py-16 {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+        }
+      .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .footer {   
+            background-color: #273353;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2339;
+        }
+
+</style>
+<footer class="bg-[#273353] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
+                </div>
+                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>(85)9.9964-5990</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-------------------------------------------------------------------------------------->

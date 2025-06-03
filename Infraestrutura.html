@@ -1,0 +1,1025 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infraestrutura - Ortopedia Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFDF',
+                        secondary: '#273353',
+                        light: '#ffffff',
+                        primaryLight: '#7fdff1',
+                        primaryDark: '#0099b3',
+                        secondaryLight: '#3a4b73',
+                        secondaryDark: '#1a2339',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .dropdown-menu {
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+        
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .facility-card {
+            transition: all 0.3s ease;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: #00BFDF;
+        }
+        
+        .tab-button.active::after {
+            width: 100%;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(39, 51, 83, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .counter-box {
+            transition: all 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header text-white py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                        <span>(85)9.9964-5990</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl md:text-3xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                </div>
+                
+                <!----------------------------------------------------------------->              
+                <!-- Menu para desktop -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-secondary font-medium hover:text-primary">Início</a>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Quem Somos
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
+                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                            <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Próteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Próteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Inferior</a>
+                            <a href="Próteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Superior</a>
+                            <a href="Próteses Estéticas.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Estéticas</a>
+                            <a href="Próteses Funcionais.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Funcionais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Órteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Órteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Inferior</a>
+                            <a href="Órteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Superior</a>
+                            <a href="Órteses de Tronco.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Tronco</a>
+                            <a href="Órteses Sob Medida.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses Sob Medida</a>
+                        </div>
+                    </div>
+                    <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
+                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
+                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                </nav>
+                
+                
+                <!-- Botão de menu mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <a href="index.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Início</a>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Quem Somos</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Próteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Órteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Tronco</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
+                <div class="mt-6">
+                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-secondary py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Nossa Infraestrutura</h1>
+                <div class="flex items-center justify-center text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="hover:text-primary transition-colors">Quem Somos</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-primary">Infraestrutura</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Intro Section -->
+            <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Tecnologia e Conforto para o seu Atendimento</h2>
+                <p class="text-gray-700 mb-6">A Ortopedia Atelier conta com uma infraestrutura moderna e completa, projetada para oferecer o máximo de conforto, segurança e eficiência no atendimento aos nossos pacientes. Nossos espaços foram cuidadosamente planejados para proporcionar uma experiência acolhedora e humanizada.</p>
+                <p class="text-gray-700">Investimos constantemente em tecnologia de ponta e na qualificação de nossa equipe para garantir que você tenha acesso aos melhores recursos disponíveis em ortopedia e reabilitação. Conheça abaixo os principais espaços da nossa clínica.</p>
+            </div>
+            
+            <!-- Facilities Tabs -->
+            <div class="mb-16">
+                <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8 animate-fade-in animate-delay-1">
+                    <button class="tab-button text-lg font-medium px-6 py-4 text-secondary active" data-tab="consultorio">Consultórios</button>
+                    <button class="tab-button text-lg font-medium px-6 py-4 text-secondary" data-tab="oficina">Oficina Ortopédica</button>
+                    <button class="tab-button text-lg font-medium px-6 py-4 text-secondary" data-tab="reabilitacao">Centro de Reabilitação</button>
+                    <button class="tab-button text-lg font-medium px-6 py-4 text-secondary" data-tab="tecnologia">Tecnologia</button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="tab-content active" id="consultorio-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="animate-fade-in animate-delay-2">
+                            <h3 class="text-2xl font-bold text-secondary mb-4">Consultórios Médicos</h3>
+                            <p class="text-gray-700 mb-4">Nossos consultórios são espaços acolhedores e privados, equipados com tecnologia de ponta para avaliações precisas e diagnósticos detalhados. Cada consultório foi projetado para garantir o máximo de conforto e privacidade durante o atendimento.</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Equipamentos de última geração para avaliação ortopédica</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistema digital para visualização de exames de imagem</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Ambiente climatizado e confortável</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acessibilidade completa para todos os pacientes</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-700">Nossos consultórios são espaços onde a tecnologia se encontra com o atendimento humanizado, permitindo que nossos especialistas realizem avaliações detalhadas e personalizadas para cada paciente.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM5 4h14v7H5V4zm0 16v-7h14.001v7H5z"></path>
+                                    <path d="M7 6h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-lg font-bold text-secondary mb-2">Consultórios Equipados</h4>
+                                <p class="text-gray-600">Nossos consultórios contam com equipamentos modernos para avaliação ortopédica completa, garantindo diagnósticos precisos e planos de tratamento personalizados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="oficina-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-4">Oficina Ortopédica</h3>
+                            <p class="text-gray-700 mb-4">Nossa oficina ortopédica é o coração da Ortopedia Atelier, onde a arte e a tecnologia se encontram para criar soluções personalizadas para cada paciente. Equipada com tecnologia de ponta e operada por técnicos altamente qualificados, nossa oficina é capaz de produzir próteses e órteses de alta qualidade e precisão.</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Impressoras 3D para prototipagem rápida e precisa</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Scanner 3D para modelagem digital precisa</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Equipamentos para usinagem de alta precisão</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Materiais de última geração para confecção de próteses e órteses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Laboratório para testes e ajustes de dispositivos</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-700">Na nossa oficina, cada prótese e órtese é confeccionada com precisão milimétrica, utilizando materiais de alta qualidade e tecnologia avançada para garantir o máximo de conforto, funcionalidade e durabilidade.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13 7h-2v2h2V7zm0 4h-2v2h2v-2zm4 0h-2v2h2v-2zM3 3v18h18V3H3zm16 16H5V7h14v12zM5 5V3h14v2H5zm8 6h-2v2h2v-2zm4 0h-2v2h2v-2zm0-4h-2v2h2V7z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-lg font-bold text-secondary mb-2">Oficina de Alta Tecnologia</h4>
+                                <p class="text-gray-600">Nossa oficina ortopédica combina tecnologia de ponta com o trabalho artesanal de técnicos especializados para criar soluções personalizadas que transformam vidas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="reabilitacao-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-4">Centro de Reabilitação</h3>
+                            <p class="text-gray-700 mb-4">Nosso Centro de Reabilitação é um espaço amplo e moderno, projetado para oferecer todas as condições necessárias para a recuperação e adaptação dos pacientes. Equipado com tecnologia avançada e supervisionado por profissionais especializados, o centro proporciona um ambiente ideal para a reabilitação física e funcional.</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Ginásio terapêutico completo com equipamentos modernos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Pista de marcha com diferentes tipos de terreno para treino de adaptação</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sala de atividades de vida diária para treinamento funcional</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Equipamentos de eletroterapia e termoterapia</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistema de análise de marcha computadorizado</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-700">No Centro de Reabilitação da Ortopedia Atelier, cada paciente recebe um programa de tratamento personalizado, desenvolvido por uma equipe multidisciplinar, visando a recuperação máxima da funcionalidade e independência.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                    <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-lg font-bold text-secondary mb-2">Centro de Reabilitação Completo</h4>
+                                <p class="text-gray-600">Nosso centro de reabilitação oferece um ambiente ideal para a recuperação e adaptação dos pacientes, com equipamentos modernos e profissionais especializados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tecnologia-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-4">Tecnologia de Ponta</h3>
+                            <p class="text-gray-700 mb-4">Na Ortopedia Atelier, investimos constantemente em tecnologia de ponta para oferecer as soluções mais avançadas em ortopedia e reabilitação. Nossa infraestrutura tecnológica nos permite realizar diagnósticos precisos, desenvolver soluções personalizadas e acompanhar de perto a evolução de cada paciente.</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistema de escaneamento 3D para modelagem digital precisa</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Impressoras 3D de alta resolução para prototipagem e produção</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Sistema de análise de marcha computadorizado com sensores de pressão</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Software de modelagem CAD/CAM para design de próteses e órteses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Equipamentos de realidade virtual para reabilitação interativa</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-700">Nossa tecnologia nos permite oferecer soluções personalizadas com precisão milimétrica, garantindo o máximo de conforto, funcionalidade e estética para cada paciente. Além disso, nossos sistemas integrados permitem um acompanhamento detalhado da evolução do tratamento.</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V7h16l.002 12H4z"></path>
+                                    <path d="M9.293 9.293L5.586 13l3.707 3.707 1.414-1.414L8.414 13l2.293-2.293zm5.414 0l-1.414 1.414L15.586 13l-2.293 2.293 1.414 1.414L18.414 13z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-lg font-bold text-secondary mb-2">Tecnologia Avançada</h4>
+                                <p class="text-gray-600">Nossa infraestrutura tecnológica nos permite oferecer soluções de ponta em ortopedia e reabilitação, combinando precisão digital com o cuidado humano.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Galeria de Fotos</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Conheça visualmente os espaços da Ortopedia Atelier através da nossa galeria de fotos. Clique nas imagens para ampliá-las.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1" data-img="recepção">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Recepção</h4>
+                            <p class="text-gray-600 text-sm">Espaço acolhedor para receber nossos pacientes</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2" data-img="consultório">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Consultório Médico</h4>
+                            <p class="text-gray-600 text-sm">Ambiente confortável e equipado para avaliações</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3" data-img="oficina">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Oficina Ortopédica</h4>
+                            <p class="text-gray-600 text-sm">Onde a tecnologia e o artesanato se encontram</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1" data-img="reabilitação">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Centro de Reabilitação</h4>
+                            <p class="text-gray-600 text-sm">Espaço amplo e equipado para fisioterapia</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2" data-img="laboratório">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Laboratório de Análise</h4>
+                            <p class="text-gray-600 text-sm">Equipamentos para análise de marcha e postura</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3" data-img="impressão-3d">
+                        <div class="aspect-w-4 aspect-h-3 bg-gray-200">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5S5 9.329 5 8.5zm9 .5l-2.519 4-2.481-1.96L5 17h14l-5-8zm8-4v14H2V5h20zm2-2H0v18h24V3z"></path>
+                            </svg>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h4 class="font-bold text-secondary">Centro de Impressão 3D</h4>
+                            <p class="text-gray-600 text-sm">Tecnologia de ponta para prototipagem rápida</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lightbox -->
+                <div id="lightbox" class="lightbox">
+                    <div class="lightbox-content">
+                        <img id="lightbox-img" src="" alt="Imagem ampliada" class="max-w-full max-h-full">
+                    </div>
+                    <button id="close-lightbox" class="absolute top-4 right-4 text-white hover:text-primary focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Numbers Section -->
+            <div class="bg-secondary py-16 rounded-lg mb-20 animate-fade-in">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Nossa Infraestrutura em Números</h2>
+                        <p class="text-white opacity-80 max-w-3xl mx-auto">Conheça alguns números que demonstram a dimensão da nossa infraestrutura e o impacto do nosso trabalho.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="counter-box bg-white rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">500m²</div>
+                            <div class="text-secondary font-medium">Área Total</div>
+                            <p class="text-gray-600 mt-2">De espaço moderno e acessível para atendimento completo</p>
+                        </div>
+                        
+                        <div class="counter-box bg-white rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">6</div>
+                            <div class="text-secondary font-medium">Consultórios</div>
+                            <p class="text-gray-600 mt-2">Equipados com tecnologia de ponta para avaliações precisas</p>
+                        </div>
+                        
+                        <div class="counter-box bg-white rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">150m²</div>
+                            <div class="text-secondary font-medium">Oficina Ortopédica</div>
+                            <p class="text-gray-600 mt-2">Com equipamentos modernos para confecção de próteses e órteses</p>
+                        </div>
+                        
+                        <div class="counter-box bg-white rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">200m²</div>
+                            <div class="text-secondary font-medium">Centro de Reabilitação</div>
+                            <p class="text-gray-600 mt-2">Espaço amplo para fisioterapia e treinamento funcional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="bg-gray-100 rounded-lg p-8 md:p-12 animate-fade-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Conheça Nossa Infraestrutura Pessoalmente</h2>
+                        <p class="text-gray-700 mb-6">Gostaríamos de convidar você para conhecer pessoalmente a infraestrutura da Ortopedia Atelier. Agende uma visita e descubra como nossos espaços e tecnologias podem contribuir para a sua reabilitação ou a de seu familiar.</p>
+                        <p class="text-gray-700 mb-8">Durante a visita, você poderá conhecer nossas instalações, conversar com nossa equipe e entender melhor como trabalhamos para oferecer as melhores soluções em ortopedia e reabilitação.</p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-8 py-3 rounded-full font-medium transition-colors text-center">Agendar Visita</a>
+                            <a href="#" class="inline-block bg-white border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-medium transition-colors text-center">Fale Conosco</a>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <div class="relative">
+                            <div class="bg-white rounded-tl-3xl rounded-br-3xl p-8 relative z-10 shadow-lg">
+                                <h3 class="text-xl font-bold text-secondary mb-4">Horários para Visitas</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Segunda a Sexta: 9h às 17h</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Sábados: 9h às 12h</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Duração média da visita: 45 minutos</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-700">Agendamento prévio necessário</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="absolute top-4 right-4 w-24 h-24 bg-primary rounded-full opacity-20"></div>
+                            <div class="absolute bottom-4 left-4 w-16 h-16 bg-primary rounded-full opacity-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="text-2xl font-bold mb-6">
+                        <span class="text-white">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Soluções ortopédicas personalizadas com tecnologia de ponta e atendimento humanizado para transformar vidas.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 relative inline-block">
+                        Links Rápidos
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Início</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 relative inline-block">
+                        Serviços
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-primary"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Inferior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Próteses de Membro Superior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Inferior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Membro Superior</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Órteses de Tronco</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Fisioterapia</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Avaliação Especializada</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9498dd74b706ba1a',t:'MTc0ODg4NzM4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<style>
+    .py-16 {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+        }
+      .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .footer {   
+            background-color: #273353;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2339;
+        }
+
+</style>
+<footer class="bg-[#273353] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
+                </div>
+                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>(85)9.9964-5990</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-------------------------------------------------------------------------------------->

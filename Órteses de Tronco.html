@@ -1,0 +1,1167 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órteses de Tronco - Ortopedia Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFDF',
+                        secondary: '#273353',
+                        light: '#ffffff',
+                        primaryLight: '#7fdff1',
+                        primaryDark: '#0099b3',
+                        secondaryLight: '#3a4b73',
+                        secondaryDark: '#1a2339',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .dropdown-menu {
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+        
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .orthosis-card {
+            transition: all 0.3s ease;
+        }
+        
+        .orthosis-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #00BFDF;
+            transition: width 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: #00BFDF;
+        }
+        
+        .tab-button.active::after {
+            width: 100%;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+        
+        .accordion-button {
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-button.active {
+            color: #00BFDF;
+        }
+        
+        .accordion-button .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-button.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+        
+        .process-number {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover .process-number {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(39, 51, 83, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .feature-card:hover {
+            border-color: #00BFDF;
+            transform: translateY(-5px);
+        }
+        
+        .technology-item {
+            transition: all 0.3s ease;
+        }
+        
+        .technology-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .technology-item:hover .technology-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .technology-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .benefit-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #00BFDF;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .comparison-table th {
+            background-color: #273353;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .comparison-table td, .comparison-table th {
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tech-spec-item {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-spec-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tech-spec-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-spec-item:hover .tech-spec-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .activity-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .activity-card:hover .activity-image {
+            transform: scale(1.05);
+        }
+        
+        .activity-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .activity-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+        }
+        
+        .component-card {
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .component-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover .component-icon {
+            background-color: #00BFDF;
+            color: white;
+        }
+        
+        .spine-svg {
+            fill: #e2e8f0;
+            stroke: #273353;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .spine-svg:hover {
+            fill: #7fdff1;
+            stroke: #00BFDF;
+        }
+        
+        .thoracic-svg {
+            fill: #e2e8f0;
+            stroke: #273353;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .thoracic-svg:hover {
+            fill: #7fdff1;
+            stroke: #00BFDF;
+        }
+        
+        .lumbar-svg {
+            fill: #e2e8f0;
+            stroke: #273353;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .lumbar-svg:hover {
+            fill: #7fdff1;
+            stroke: #00BFDF;
+        }
+        
+        .sacral-svg {
+            fill: #e2e8f0;
+            stroke: #273353;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .sacral-svg:hover {
+            fill: #7fdff1;
+            stroke: #00BFDF;
+        }
+        
+        .orthosis-3d-view {
+            perspective: 1000px;
+        }
+        
+        .orthosis-3d-model {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .orthosis-3d-model:hover {
+            transform: rotateY(20deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header text-white py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
+                        <span>(85)9.9964-5990</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2 text-primary"></i>
+                        <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl md:text-3xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                </div>
+                
+                <!----------------------------------------------------------------->              
+                <!-- Menu para desktop -->
+                <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="index.html" class="nav-link text-secondary font-medium hover:text-primary">Início</a>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Quem Somos
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
+                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                            <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Próteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Próteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Inferior</a>
+                            <a href="Próteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses de Membro Superior</a>
+                            <a href="Próteses Estéticas.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Estéticas</a>
+                            <a href="Próteses Funcionais.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Próteses Funcionais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown relative group">
+                        <a href="#" class="nav-link text-secondary font-medium hover:text-primary flex items-center">
+                            Órteses
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-20">
+                            <a href="Órteses de Membro Inferior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Inferior</a>
+                            <a href="Órteses de Membro Superior.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Membro Superior</a>
+                            <a href="Órteses de Tronco.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses de Tronco</a>
+                            <a href="Órteses Sob Medida.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Órteses Sob Medida</a>
+                        </div>
+                    </div>
+                    <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
+                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
+                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                </nav>
+                
+                
+                <!-- Botão de menu mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="text-secondary">Ortopedia</span>
+                        <span class="text-primary">Atelier</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <a href="index.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Início</a>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Quem Somos</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-secondary hover:text-primary">
+                        <span>Próteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Estéticas</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Próteses Funcionais</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown border-b border-gray-100">
+                    <button class="mobile-dropdown-button flex justify-between items-center w-full py-2 text-primary">
+                        <span>Órteses</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content pl-4">
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Inferior</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses de Membro Superior</a>
+                        <a href="#" class="block py-2 text-primary font-medium">Órteses de Tronco</a>
+                        <a href="#" class="block py-2 text-secondary hover:text-primary">Órteses Sob Medida</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
+                <a href="#" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Contato</a>
+                <div class="mt-6">
+                    <a href="#" class="block text-center bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Agendar Consulta</a>
+                </div>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-secondary py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Órteses de Tronco</h1>
+                <div class="flex items-center justify-center text-white">
+                    <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="hover:text-primary transition-colors">Órteses</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-primary">Órteses de Tronco</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Intro Section -->
+            <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-6">Suporte e Estabilidade para a Coluna Vertebral</h2>
+                <p class="text-gray-700 mb-6">Na Ortopedia Atelier, desenvolvemos órteses de tronco personalizadas que proporcionam suporte, estabilidade e alinhamento adequado para a coluna vertebral, auxiliando na recuperação de lesões, no tratamento de condições crônicas e na prevenção de deformidades.</p>
+                <p class="text-gray-700">Nossas órteses são projetadas com tecnologia avançada e materiais de alta qualidade para oferecer o máximo de conforto, funcionalidade e durabilidade, permitindo que você mantenha sua qualidade de vida durante o tratamento.</p>
+            </div>
+            
+            <!-- Interactive Trunk Diagram -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in animate-delay-1">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Órteses para Cada Região da Coluna</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Explore nosso diagrama interativo para conhecer as diferentes órteses disponíveis para cada região da coluna vertebral.</p>
+                </div>
+                
+                <div class="relative max-w-4xl mx-auto h-[500px] md:h-[600px] bg-gray-50 rounded-xl p-4 animate-fade-in animate-delay-2">
+                    <!-- SVG Diagram of Spine -->
+                    <svg class="w-full h-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cervical Spine -->
+                        <g id="cervical-group" class="cursor-pointer">
+                            <rect x="350" y="50" width="100" height="80" rx="10" class="spine-svg" />
+                            <text x="400" y="90" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Cervical</text>
+                        </g>
+                        
+                        <!-- Thoracic Spine -->
+                        <g id="thoracic-group" class="cursor-pointer">
+                            <rect x="350" y="180" width="100" height="120" rx="10" class="thoracic-svg" />
+                            <text x="400" y="240" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Torácica</text>
+                        </g>
+                        
+                        <!-- Lumbar Spine -->
+                        <g id="lumbar-group" class="cursor-pointer">
+                            <rect x="350" y="350" width="100" height="100" rx="10" class="lumbar-svg" />
+                            <text x="400" y="400" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Lombar</text>
+                        </g>
+                        
+                        <!-- Sacral Spine -->
+                        <g id="sacral-group" class="cursor-pointer">
+                            <rect x="350" y="500" width="100" height="60" rx="10" class="sacral-svg" />
+                            <text x="400" y="530" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Sacral</text>
+                        </g>
+                        
+                        <!-- Connecting Lines -->
+                        <line x1="400" y1="130" x2="400" y2="180" stroke="#273353" stroke-width="4" />
+                        <line x1="400" y1="300" x2="400" y2="350" stroke="#273353" stroke-width="4" />
+                        <line x1="400" y1="450" x2="400" y2="500" stroke="#273353" stroke-width="4" />
+                    </svg>
+                    
+                    <!-- Information Panels -->
+                    <div id="cervical-info" class="hidden absolute top-0 right-0 w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-secondary mb-3">Órteses Cervicais</h3>
+                        <p class="text-gray-700 mb-4">Dispositivos que estabilizam, suportam e limitam movimentos da região cervical da coluna, auxiliando na recuperação de lesões, cirurgias e condições como hérnias de disco e espondiloses.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Colares cervicais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Minervas cervicais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Órteses cervicotorácicas</span>
+                            </li>
+                        </ul>
+                        <button class="close-info bg-gray-200 hover:bg-gray-300 text-secondary px-4 py-2 rounded-full font-medium transition-colors">Fechar</button>
+                    </div>
+                    
+                    <div id="thoracic-info" class="hidden absolute top-0 right-0 w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-secondary mb-3">Órteses Torácicas</h3>
+                        <p class="text-gray-700 mb-4">Dispositivos que controlam os movimentos da região torácica da coluna, proporcionando suporte, estabilidade e alinhamento adequado durante a recuperação de lesões, cirurgias ou condições como escoliose e cifose.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Coletes para escoliose</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Órteses para cifose</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Coletes de hiperextensão</span>
+                            </li>
+                        </ul>
+                        <button class="close-info bg-gray-200 hover:bg-gray-300 text-secondary px-4 py-2 rounded-full font-medium transition-colors">Fechar</button>
+                    </div>
+                    
+                    <div id="lumbar-info" class="hidden absolute top-0 right-0 w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-secondary mb-3">Órteses Lombares</h3>
+                        <p class="text-gray-700 mb-4">Dispositivos que estabilizam a região lombar da coluna, limitando movimentos indesejados e proporcionando suporte durante a recuperação de lesões, cirurgias ou condições como hérnias de disco, lombalgias e espondilolistese.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Cintas lombares</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Órteses lombossacrais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Coletes para hérnia de disco</span>
+                            </li>
+                        </ul>
+                        <button class="close-info bg-gray-200 hover:bg-gray-300 text-secondary px-4 py-2 rounded-full font-medium transition-colors">Fechar</button>
+                    </div>
+                    
+                    <div id="sacral-info" class="hidden absolute top-0 right-0 w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-secondary mb-3">Órteses Sacrais</h3>
+                        <p class="text-gray-700 mb-4">Dispositivos que proporcionam suporte e estabilidade para a região sacral da coluna e articulações sacroilíacas, auxiliando na recuperação de lesões, cirurgias ou condições como disfunções sacroilíacas e coccigodinia.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Cintas sacroilíacas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Órteses para cóccix</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Suportes pélvicos</span>
+                            </li>
+                        </ul>
+                        <button class="close-info bg-gray-200 hover:bg-gray-300 text-secondary px-4 py-2 rounded-full font-medium transition-colors">Fechar</button>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-6 animate-fade-in animate-delay-3">
+                    <p class="text-gray-700 italic">Clique nas diferentes regiões do diagrama para obter mais informações sobre as órteses disponíveis.</p>
+                </div>
+            </div>
+            
+            <!-- Types of Trunk Orthoses -->
+            <div class="mb-20">
+                <div class="text-center mb-12 animate-fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Tipos de Órteses de Tronco</h2>
+                    <p class="text-gray-700 max-w-3xl mx-auto">Oferecemos uma ampla variedade de órteses para tronco, desde dispositivos pré-fabricados até soluções totalmente personalizadas, adaptadas às necessidades específicas de cada paciente.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Orthosis Type 1 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Colares Cervicais</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam e limitam os movimentos da região cervical da coluna, auxiliando na recuperação de lesões, traumas, cirurgias e condições como hérnias de disco e espondiloses cervicais.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colares cervicais macios</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colares cervicais rígidos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Minervas cervicais</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 2 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Coletes para Escoliose</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que proporcionam suporte e correção para a coluna torácica e lombar, auxiliando no tratamento da escoliose, especialmente em crianças e adolescentes em fase de crescimento.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete de Boston</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete de Cheneau</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete de Milwaukee</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 3 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Cintas Lombares</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam a região lombar da coluna, limitando movimentos indesejados e proporcionando suporte durante a recuperação de lesões, cirurgias ou condições como lombalgias e hérnias de disco.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Cintas elásticas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Cintas semirrígidas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Cintas com reforços</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 4 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-1">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Coletes de Hiperextensão</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que limitam a flexão da coluna torácica e lombar, promovendo a extensão e auxiliando no tratamento de fraturas por compressão, osteoporose e cifose.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete de Jewett</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete CASH</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Colete de Taylor</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 5 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-2">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Órteses Toracolombossacrais</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam e controlam os movimentos das regiões torácica, lombar e sacral da coluna, auxiliando na recuperação de lesões complexas, cirurgias e condições que afetam múltiplos segmentos da coluna.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Coletes TLSO</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Coletes de corpo inteiro</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Órteses pós-cirúrgicas</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Orthosis Type 6 -->
+                    <div class="orthosis-card bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in animate-delay-3">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                <path d="M13 7h-2v6h6v-2h-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Cintas Sacroilíacas</h3>
+                            <p class="text-gray-700 mb-4">Dispositivos que estabilizam as articulações sacroilíacas, proporcionando suporte e alívio da dor em condições como disfunção sacroilíaca, instabilidade pélvica e dor lombar relacionada à região sacral.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Cintas pélvicas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Suportes para cóccix</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Cintas para gestantes</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-block bg-primary hover:bg-primaryDark text-white px-6 py-2 rounded-full font-medium transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<style>
+    .py-16 {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+        }
+      .top-header {
+            background-color: #273353;
+        }
+        
+        .main-header {
+            background-color: white;
+        }
+        
+        .footer {   
+            background-color: #273353;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2339;
+        }
+
+</style>
+<footer class="bg-[#273353] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl font-bold mr-2 text-[#00BFDF]">Ortopedia Atelier</span>
+                </div>
+                <p class="text-gray-300 mb-4">Sua saúde e bem-estar em foco, com soluções ortopédicas personalizadas.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Sobre</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Serviços</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-[#00BFDF] transition duration-300">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>R. Carlos Vasconcelos, 2140 - Aldeota, Fortaleza - CE, 60115-044</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>(85)9.9964-5990</span> </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-[#00BFDF] mr-3 mt-1"></i>
+                        <span>Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h</span> </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">© 2025 Ortopedia Atelier. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-------------------------------------------------------------------------------------->
