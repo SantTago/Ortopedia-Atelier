@@ -242,6 +242,16 @@
         .tab-button.active::after {
             width: 100%;
         }
+         .mb-4 {
+            padding-top: 2rem;
+            padding-bottom: 0.rem;
+        }
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+            padding-bottom: 15px;
+            margin-top: -20px;
+        }
     </style>
 </head>
 <body>
@@ -347,9 +357,9 @@
                         </div>
                     </div>
                     <a href="Reabilitação.html" class="nav-link text-secondary font-medium hover:text-primary">Reabilitação</a>
-                    <a href="Convênios.html" class="nav-link text-secondary font-medium hover:text-primary">Convênios</a>
+                    
                     <a href="Blog.html" class="nav-link text-secondary font-medium hover:text-primary">Blog</a>
-                    <a href="#" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                    <a href="Contato.html" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
                 </nav>
 <!------------------------------------------------------------------------------------------->
                  <!-- Botão de menu mobile -->
@@ -416,7 +426,7 @@
                     </div>
                 </div>
                 <a href="Reabilitação.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Reabilitação</a>
-                <a href="Convênios.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Convênios</a>
+                
                 <a href="Blog.html" class="block py-2 text-secondary hover:text-primary border-b border-gray-100">Blog</a>
               
                
@@ -434,728 +444,164 @@
 <!------------------------------------------------------------------------------------------->
 
 
-    <!-- Page Header -->
-    <div class="bg-secondary py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Blog</h1>
-                <div class="flex items-center justify-center text-white">
-                    <a href="#" class="hover:text-primary transition-colors">Início</a>
-                    <span class="mx-2">/</span>
-                    <span class="text-primary">Blog</span>
+<!-- Page Header -->
+<div class="bg-secondary py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <div class="text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Blog</h1>
+            <div class="flex items-center justify-center text-white">
+                <a href="#" class="hover:text-primary transition-colors">Início</a>
+                <span class="mx-2">/</span>
+                <span class="text-primary">Blog</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------->
+<!-- Main Content -->
+<div class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div id="all-posts" class="tab-content active">
+                <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
+                    <div class="relative">
+                        <div class="blog-image">
+                            <div class="relative z-10 bg-gray-200 h-96 rounded-lg overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/p/AF1QipNTmT3xjGPnJKRBjSZwKpzx1i9_mc-RogpQYRN-=s680-w680-h510-rw"
+                                    alt="Descrição da imagem da clínica" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="flex items-center">
+                                <i class="far fa-calendar-alt mr-2"></i>
+                                15 de Junho, 2023
+                            </span>
+                            <span class="mx-3">|</span>
+                            <span class="flex items-center">
+                                <i class="far fa-user mr-2"></i>
+                                Dr. Carlos Silva
+                            </span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-secondary mb-3">Avanços Tecnológicos em Próteses de Membros
+                            Inferiores</h2>
+                        <p class="text-gray-700 mb-4" id="short-description">Descubra como a tecnologia está
+                            revolucionando o desenvolvimento de próteses de membros inferiores, proporcionando mais
+                            conforto, funcionalidade e qualidade de vida para os pacientes.</p>
+
+                        <div id="full-content" class="hidden">
+                            <p class="text-gray-700 mb-4">
+                                Os avanços recentes na ciência dos materiais e na robótica têm permitido a criação de
+                                próteses cada vez mais sofisticadas. Sensores de alta precisão, inteligência
+                                artificial e materiais leves como a fibra de carbono estão transformando a vida de
+                                amputados, oferecendo mobilidade aprimorada e controle intuitivo. Além disso, a
+                                integração com sistemas neurais promete um futuro onde as próteses se comunicarão
+                                diretamente com o cérebro, proporcionando uma experiência ainda mais natural.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Esses desenvolvimentos não apenas melhoram a capacidade física, mas também impactam
+                                positivamente a saúde mental e a reintegração social dos usuários, permitindo que
+                                retomem suas atividades diárias e hobbies com maior autonomia.
+                            </p>
+                        </div>
+
+                        <button id="toggle-content-btn"
+                            class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors">
+                            Ler mais
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Main Content -->
-    <div class="py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Blog Posts -->
-                <div class="w-full lg:w-2/3">
-                    <!-- Blog Tabs -->
-                    <div class="mb-10">
-                        <div class="flex flex-wrap border-b border-gray-200">
-                            <button class="tab-button px-6 py-3 font-medium text-secondary active" data-tab="all-posts">Todos os Posts</button>
-                            <button class="tab-button px-6 py-3 font-medium text-secondary" data-tab="proteses">Próteses</button>
-                            <button class="tab-button px-6 py-3 font-medium text-secondary" data-tab="orteses">Órteses</button>
-                            <button class="tab-button px-6 py-3 font-medium text-secondary" data-tab="reabilitacao">Reabilitação</button>
-                            <button class="tab-button px-6 py-3 font-medium text-secondary" data-tab="tecnologia">Tecnologia</button>
-                        </div>
-                    </div>
-                    
-                    <!-- All Posts Tab Content -->
-                    <div id="all-posts" class="tab-content active">
-                        <!-- Featured Post -->
-                        <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
-                            <div class="relative">
-                                <div class="blog-image">
-                                    <svg class="w-full h-64 md:h-80 bg-gray-100" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="800" height="400" fill="#f3f4f6"/>
-                                        <path d="M300,150 Q400,50 500,150 T700,150" stroke="#00BFDF" stroke-width="8" fill="none"/>
-                                        <path d="M100,150 Q200,50 300,150 T500,150" stroke="#273353" stroke-width="8" fill="none"/>
-                                        <circle cx="400" cy="200" r="80" fill="#00BFDF" opacity="0.2"/>
-                                        <circle cx="400" cy="200" r="40" fill="#273353" opacity="0.4"/>
-                                    </svg>
-                                </div>
-                                <span class="blog-category absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Tecnologia</span>
-                            </div>
-                            <div class="p-6">
-                                <div class="flex items-center text-sm text-gray-500 mb-3">
-                                    <span class="flex items-center">
-                                        <i class="far fa-calendar-alt mr-2"></i>
-                                        15 de Junho, 2023
-                                    </span>
-                                    <span class="mx-3">|</span>
-                                    <span class="flex items-center">
-                                        <i class="far fa-user mr-2"></i>
-                                        Dr. Carlos Silva
-                                    </span>
-                                </div>
-                                <h2 class="text-2xl font-bold text-secondary mb-3">Avanços Tecnológicos em Próteses de Membros Inferiores</h2>
-                                <p class="text-gray-700 mb-4">Descubra como a tecnologia está revolucionando o desenvolvimento de próteses de membros inferiores, proporcionando mais conforto, funcionalidade e qualidade de vida para os pacientes.</p>
-                                <a href="#" class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors">
-                                    Ler mais
-                                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                                </a>
+<div class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div id="all-posts" class="tab-content active">
+                <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
+                    <div class="relative">
+                        <div class="blog-image">
+                            <div class="relative z-10 bg-gray-200 h-96 rounded-lg overflow-hidden">
+                                <img src="https://lh3.googleusercontent.com/p/AF1QipNTmT3xjGPnJKRBjSZwKpzx1i9_mc-RogpQYRN-=s680-w680-h510-rw"
+                                    alt="Descrição da imagem da clínica" class="w-full h-full object-cover">
                             </div>
                         </div>
-                        
-                        <!-- Regular Posts Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Blog Post 1 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in animate-delay-1">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="200" cy="100" r="60" fill="#00BFDF" opacity="0.2"/>
-                                            <path d="M100,100 Q150,50 200,100 T300,100" stroke="#273353" stroke-width="6" fill="none"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            10 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Como Escolher a Prótese Ideal para Suas Necessidades</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Um guia completo para ajudar você a entender os diferentes tipos de próteses disponíveis e como escolher a mais adequada para o seu caso.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 2 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in animate-delay-2">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <rect x="120" y="60" width="160" height="80" rx="10" fill="#273353" opacity="0.2"/>
-                                            <path d="M150,100 L250,100" stroke="#00BFDF" stroke-width="8" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Órteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            5 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Órteses para Coluna: Quando São Necessárias?</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Entenda as indicações, benefícios e cuidados necessários ao utilizar órteses para tratamento de problemas na coluna vertebral.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 3 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in animate-delay-3">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="150" cy="100" r="40" fill="#273353" opacity="0.2"/>
-                                            <circle cx="250" cy="100" r="40" fill="#00BFDF" opacity="0.2"/>
-                                            <path d="M150,100 L250,100" stroke="#273353" stroke-width="6" stroke-dasharray="10,5"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Reabilitação</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            1 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Exercícios Essenciais para Adaptação à Prótese</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Conheça os exercícios recomendados para facilitar a adaptação e melhorar o desempenho funcional com sua nova prótese.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 4 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in animate-delay-4">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M100,150 Q200,50 300,150" stroke="#00BFDF" stroke-width="6" fill="none"/>
-                                            <circle cx="200" cy="100" r="30" fill="#273353" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Tecnologia</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            28 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Impressão 3D na Fabricação de Órteses Personalizadas</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Descubra como a tecnologia de impressão 3D está revolucionando a produção de órteses sob medida, com mais precisão e conforto.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 5 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <rect x="150" y="70" width="100" height="60" rx="5" fill="#00BFDF" opacity="0.2"/>
-                                            <line x1="120" y1="100" x2="280" y2="100" stroke="#273353" stroke-width="6" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            20 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Cuidados Diários com Sua Prótese</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Aprenda as melhores práticas para manutenção, limpeza e conservação da sua prótese, garantindo maior durabilidade e desempenho.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 6 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg animate-fade-in animate-delay-1">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="200" cy="100" r="50" fill="#273353" opacity="0.1"/>
-                                            <circle cx="200" cy="100" r="30" fill="#00BFDF" opacity="0.2"/>
-                                            <circle cx="200" cy="100" r="10" fill="#273353" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Órteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            15 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Órteses para Prática Esportiva: O Que Você Precisa Saber</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Conheça os diferentes tipos de órteses desenvolvidas especificamente para atletas e praticantes de atividades físicas.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
-                        
-                        <!-- Pagination -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex rounded-md shadow">
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 rounded-l-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-left text-xs"></i>
-                                </a>
-                                <a href="#" class="pagination-item active inline-flex items-center justify-center w-10 h-10 border border-r-0 border-gray-300">1</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 hover:bg-gray-100">2</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 hover:bg-gray-100">3</a>
-                                <span class="inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300">...</span>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 hover:bg-gray-100">8</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-gray-300 rounded-r-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-right text-xs"></i>
-                                </a>
-                            </nav>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="flex items-center">
+                                <i class="far fa-calendar-alt mr-2"></i>
+                                15 de Junho, 2023
+                            </span>
+                            <span class="mx-3">|</span>
+                            <span class="flex items-center">
+                                <i class="far fa-user mr-2"></i>
+                                Dr. Carlos Silva
+                            </span>
                         </div>
-                    </div>
-                    
-                    <!-- Próteses Tab Content -->
-                    <div id="proteses" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Blog Post 1 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="200" cy="100" r="60" fill="#00BFDF" opacity="0.2"/>
-                                            <path d="M100,100 Q150,50 200,100 T300,100" stroke="#273353" stroke-width="6" fill="none"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            10 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Como Escolher a Prótese Ideal para Suas Necessidades</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Um guia completo para ajudar você a entender os diferentes tipos de próteses disponíveis e como escolher a mais adequada para o seu caso.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 2 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <rect x="150" y="70" width="100" height="60" rx="5" fill="#00BFDF" opacity="0.2"/>
-                                            <line x1="120" y1="100" x2="280" y2="100" stroke="#273353" stroke-width="6" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            20 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Cuidados Diários com Sua Prótese</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Aprenda as melhores práticas para manutenção, limpeza e conservação da sua prótese, garantindo maior durabilidade e desempenho.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 3 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M150,150 C150,100 250,100 250,150" stroke="#273353" stroke-width="6" fill="none"/>
-                                            <circle cx="150" cy="150" r="10" fill="#00BFDF"/>
-                                            <circle cx="250" cy="150" r="10" fill="#00BFDF"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            10 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Próteses Biônicas: O Futuro da Reabilitação</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Conheça as inovações em próteses biônicas e como elas estão transformando a vida de pessoas com amputações.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 4 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <line x1="100" y1="100" x2="300" y2="100" stroke="#273353" stroke-width="8" stroke-linecap="round"/>
-                                            <circle cx="200" cy="100" r="30" fill="#00BFDF" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Próteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            1 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Adaptação à Primeira Prótese: Dicas e Orientações</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Orientações importantes para quem está passando pelo processo de adaptação à primeira prótese.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
+                        <h2 class="text-2xl font-bold text-secondary mb-3">Avanços Tecnológicos em Próteses de Membros
+                            Inferiores</h2>
+                        <p class="text-gray-700 mb-4" id="short-description">Descubra como a tecnologia está
+                            revolucionando o desenvolvimento de próteses de membros inferiores, proporcionando mais
+                            conforto, funcionalidade e qualidade de vida para os pacientes.</p>
+
+                        <div id="full-content" class="hidden">
+                            <p class="text-gray-700 mb-4">
+                                Os avanços recentes na ciência dos materiais e na robótica têm permitido a criação de
+                                próteses cada vez mais sofisticadas. Sensores de alta precisão, inteligência
+                                artificial e materiais leves como a fibra de carbono estão transformando a vida de
+                                amputados, oferecendo mobilidade aprimorada e controle intuitivo. Além disso, a
+                                integração com sistemas neurais promete um futuro onde as próteses se comunicarão
+                                diretamente com o cérebro, proporcionando uma experiência ainda mais natural.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Esses desenvolvimentos não apenas melhoram a capacidade física, mas também impactam
+                                positivamente a saúde mental e a reintegração social dos usuários, permitindo que
+                                retomem suas atividades diárias e hobbies com maior autonomia.
+                            </p>
                         </div>
-                        
-                        <!-- Pagination -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex rounded-md shadow">
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 rounded-l-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-left text-xs"></i>
-                                </a>
-                                <a href="#" class="pagination-item active inline-flex items-center justify-center w-10 h-10 border border-r-0 border-gray-300">1</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 hover:bg-gray-100">2</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-gray-300 rounded-r-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-right text-xs"></i>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                    
-                    <!-- Órteses Tab Content -->
-                    <div id="orteses" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Blog Post 1 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <rect x="120" y="60" width="160" height="80" rx="10" fill="#273353" opacity="0.2"/>
-                                            <path d="M150,100 L250,100" stroke="#00BFDF" stroke-width="8" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Órteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            5 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Órteses para Coluna: Quando São Necessárias?</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Entenda as indicações, benefícios e cuidados necessários ao utilizar órteses para tratamento de problemas na coluna vertebral.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 2 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="200" cy="100" r="50" fill="#273353" opacity="0.1"/>
-                                            <circle cx="200" cy="100" r="30" fill="#00BFDF" opacity="0.2"/>
-                                            <circle cx="200" cy="100" r="10" fill="#273353" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Órteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            15 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Órteses para Prática Esportiva: O Que Você Precisa Saber</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Conheça os diferentes tipos de órteses desenvolvidas especificamente para atletas e praticantes de atividades físicas.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 3 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M100,100 L300,100" stroke="#273353" stroke-width="6" stroke-dasharray="15,10"/>
-                                            <rect x="175" y="75" width="50" height="50" fill="#00BFDF" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Órteses</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            5 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Órteses Infantis: Guia para Pais e Cuidadores</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Informações importantes sobre órteses para crianças, incluindo cuidados especiais e adaptação ao uso diário.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Pagination -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex rounded-md shadow">
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 rounded-l-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-left text-xs"></i>
-                                </a>
-                                <a href="#" class="pagination-item active inline-flex items-center justify-center w-10 h-10 border border-r-0 border-gray-300">1</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-gray-300 rounded-r-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-right text-xs"></i>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                    
-                    <!-- Reabilitação Tab Content -->
-                    <div id="reabilitacao" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Blog Post 1 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="150" cy="100" r="40" fill="#273353" opacity="0.2"/>
-                                            <circle cx="250" cy="100" r="40" fill="#00BFDF" opacity="0.2"/>
-                                            <path d="M150,100 L250,100" stroke="#273353" stroke-width="6" stroke-dasharray="10,5"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Reabilitação</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            1 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Exercícios Essenciais para Adaptação à Prótese</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Conheça os exercícios recomendados para facilitar a adaptação e melhorar o desempenho funcional com sua nova prótese.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 2 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M100,150 Q200,50 300,150" stroke="#00BFDF" stroke-width="6" fill="none"/>
-                                            <circle cx="200" cy="100" r="20" fill="#273353" opacity="0.2"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Reabilitação</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            25 de Abril, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Fisioterapia Aquática na Reabilitação Ortopédica</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Descubra os benefícios da fisioterapia aquática no processo de reabilitação após amputações ou lesões ortopédicas.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 3 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <rect x="150" y="75" width="100" height="50" rx="25" fill="#273353" opacity="0.2"/>
-                                            <circle cx="200" cy="100" r="15" fill="#00BFDF" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Reabilitação</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            15 de Abril, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Suporte Psicológico na Reabilitação: Por Que é Importante?</h3>
-                                    <p class="text-gray-700 text-sm mb-3">A importância do acompanhamento psicológico durante o processo de adaptação a próteses e órteses.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Pagination -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex rounded-md shadow">
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 rounded-l-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-left text-xs"></i>
-                                </a>
-                                <a href="#" class="pagination-item active inline-flex items-center justify-center w-10 h-10 border border-r-0 border-gray-300">1</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-gray-300 rounded-r-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-right text-xs"></i>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                    
-                    <!-- Tecnologia Tab Content -->
-                    <div id="tecnologia" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Blog Post 1 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M100,150 Q200,50 300,150" stroke="#00BFDF" stroke-width="6" fill="none"/>
-                                            <circle cx="200" cy="100" r="30" fill="#273353" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Tecnologia</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            28 de Maio, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Impressão 3D na Fabricação de Órteses Personalizadas</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Descubra como a tecnologia de impressão 3D está revolucionando a produção de órteses sob medida, com mais precisão e conforto.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 2 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <path d="M300,150 Q400,50 500,150 T700,150" stroke="#00BFDF" stroke-width="8" fill="none" transform="translate(-300, 0)"/>
-                                            <path d="M100,150 Q200,50 300,150 T500,150" stroke="#273353" stroke-width="8" fill="none" transform="translate(-100, 0)"/>
-                                            <circle cx="200" cy="100" r="40" fill="#00BFDF" opacity="0.2"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Tecnologia</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            15 de Junho, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Avanços Tecnológicos em Próteses de Membros Inferiores</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Descubra como a tecnologia está revolucionando o desenvolvimento de próteses de membros inferiores.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Blog Post 3 -->
-                            <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg">
-                                <div class="relative">
-                                    <div class="blog-image">
-                                        <svg class="w-full h-48 bg-gray-100" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="400" height="200" fill="#f3f4f6"/>
-                                            <circle cx="200" cy="100" r="60" fill="#273353" opacity="0.1"/>
-                                            <circle cx="200" cy="100" r="40" fill="#00BFDF" opacity="0.2"/>
-                                            <circle cx="200" cy="100" r="20" fill="#273353" opacity="0.3"/>
-                                        </svg>
-                                    </div>
-                                    <span class="blog-category absolute top-4 left-4 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Tecnologia</span>
-                                </div>
-                                <div class="p-5">
-                                    <div class="flex items-center text-xs text-gray-500 mb-2">
-                                        <span class="flex items-center">
-                                            <i class="far fa-calendar-alt mr-1"></i>
-                                            10 de Abril, 2023
-                                        </span>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-secondary mb-2">Inteligência Artificial na Reabilitação Ortopédica</h3>
-                                    <p class="text-gray-700 text-sm mb-3">Como a IA está sendo aplicada para melhorar os processos de reabilitação e adaptação a próteses e órteses.</p>
-                                    <a href="#" class="inline-flex items-center text-sm font-medium text-primary hover:text-primaryDark transition-colors">
-                                        Ler mais
-                                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Pagination -->
-                        <div class="flex justify-center">
-                            <nav class="inline-flex rounded-md shadow">
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-r-0 border-gray-300 rounded-l-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-left text-xs"></i>
-                                </a>
-                                <a href="#" class="pagination-item active inline-flex items-center justify-center w-10 h-10 border border-r-0 border-gray-300">1</a>
-                                <a href="#" class="pagination-item inline-flex items-center justify-center w-10 h-10 text-gray-600 border border-gray-300 rounded-r-md hover:bg-gray-100">
-                                    <i class="fas fa-chevron-right text-xs"></i>
-                                </a>
-                            </nav>
-                        </div>
+
+                        <button id="toggle-content-btn"
+                            class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors">
+                            Ler mais
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Sidebar -->
-                <div class="w-full lg:w-1/3">
-                    <!-- Search -->
-                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 animate-fade-in">
-                        <h3 class="text-xl font-bold text-secondary mb-4">Pesquisar</h3>
-                        <div class="relative">
-                            <input type="text" class="search-input w-full border border-gray-300 rounded-full py-2 px-4 pr-10 focus:outline-none" placeholder="Buscar no blog...">
-                            <button class="absolute right-0 top-0 mt-2 mr-3 text-gray-500 hover:text-primary transition-colors">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                   
+            </div>
+        </div>
+    </div>
+</div>
 
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('toggle-content-btn');
+        const fullContent = document.getElementById('full-content');
+        const shortDescription = document.getElementById('short-description');
+
+        toggleButton.addEventListener('click', function () {
+            if (fullContent.classList.contains('hidden')) {
+                fullContent.classList.remove('hidden');
+                shortDescription.classList.add('hidden'); // Opcional: esconde a descrição curta
+                toggleButton.innerHTML = 'Recolher <i class="fas fa-arrow-up ml-2 text-sm"></i>';
+            } else {
+                fullContent.classList.add('hidden');
+                shortDescription.classList.remove('hidden'); // Opcional: mostra a descrição curta novamente
+                toggleButton.innerHTML = 'Ler mais <i class="fas fa-arrow-right ml-2 text-sm"></i>';
+            }
+        });
+    });
+</script>
+
+<!------------------------------------------------------------------------------------------->
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
