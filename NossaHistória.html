@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -159,99 +157,58 @@
         .animate-delay-3 {
             animation-delay: 0.6s;
         }
-         .mb-4 {
+        .mb-4 {
             padding-top: 2rem;
             padding-bottom: 0.rem;
         }
         .text-white {
             --tw-text-opacity: 1;
             color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-            padding-bottom: 15px;
-            margin-top: -20px;
+            /* Removido padding-bottom e margin-top aqui para evitar conflito com o footer */
         }
     </style>
 </head>
 <body>
-    <!-- Top Header -->
-    <div class="top-header text-white py-2">
-        <div class="top-header hidden md:block text-white py-2">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mb-2 md:mb-0">
-                <div class="flex items-center">
-                    <i class="fas fa-phone-alt mr-2 text-primary"></i>
-                    <span>(85)9.9964-5990</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-envelope mr-2 text-primary"></i>
-                    <span class="text-sm md:text-base">contato@ortopediaatelier.com.br</span>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
-                <div class="flex items-center">
-                    <i class="far fa-clock mr-2 text-primary"></i>
-                    <span class="text-sm md:text-base">Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
-                </div>
-                <div class="flex space-x-3 mt-2 md:mt-0">
-                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <!-- Main Header -->
     <header class="main-header shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <!-------------------------------------------------->
-
                     <div class="logo-container">
                         <img src="Logo.png" alt="Logo Ortopedia Atelier" class="logo-img">
                     </div>
-
                     <style>
                         .logo-container {
-                        display: flex;
-                        align-items: center;
-                    }
+                            display: flex;
+                            align-items: center;
+                        }
 
-                    .logo-img {
-                        height: 48px;
-                        max-width: 100%;
-                    }
-                    .py-16 {
-                        padding-top: 0rem;
-                        padding-bottom: 0rem;
-                    }
-                    .text-gray-700 {
-                        --tw-text-opacity: 1;
-                        color: rgb(255 255 255);
-                    }
-                    .text-gray-7001 {
-                        --tw-text-opacity: 1;
-                        color: rgb(55 65 81 / var(--tw-text-opacity, 1));
-                    }
-                    .text-secondary {
-                        --tw-text-opacity: 1;
-                        color: rgb(255 255 255);
-                    }
-                    .text-secondary1 {
-                        --tw-text-opacity: 1;
-                        color: rgb(39 51 83 / var(--tw-text-opacity, 1));
-                    }
-
+                        .logo-img {
+                            height: 48px;
+                            max-width: 100%;
+                        }
+                        .py-16 {
+                            padding-top: 0rem;
+                            padding-bottom: 0rem;
+                        }
+                        .text-gray-700 {
+                            --tw-text-opacity: 1;
+                            color: rgb(255 255 255);
+                        }
+                        .text-gray-7001 {
+                            --tw-text-opacity: 1;
+                            color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+                        }
+                        .text-secondary {
+                            --tw-text-opacity: 1;
+                            color: rgb(255 255 255);
+                        }
+                        .text-secondary1 {
+                            --tw-text-opacity: 1;
+                            color: rgb(39 51 83 / var(--tw-text-opacity, 1));
+                        }
                     </style>
-
-<!-------------------------------------------------->
                 </div>
                 
-               <!----------------------------------------------------------------->              
-                <!-- Menu para desktop -->
                 <nav class="hidden lg:flex space-x-6 xl:space-x-8">
                     <a href="index.html" class="nav-link text-secondary1 font-medium hover:text-primary">Início</a>
                     <div class="dropdown relative group">
@@ -261,7 +218,7 @@
                         </a>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
                             <a href="NossaHistória.html" class="block px-4 py-2 text-secondary1 hover:bg-primary hover:text-white">Nossa História</a>
-                            <a href="Equipe.html" class="block px-4 py-2 text-secondary1 hover:bg-primary hover:text-white">Equipe</a>
+                         <!--  <a href="Equipe.html" class="block px-4 py-2 text-secondary1 hover:bg-primary hover:text-white">Equipe</a>--> 
                             <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary1 hover:bg-primary hover:text-white">Infraestrutura</a>
                         </div>
                     </div>
@@ -290,13 +247,10 @@
                         </div>
                     </div>
                     <a href="Reabilitação.html" class="nav-link text-secondary1 font-medium hover:text-primary">Reabilitação</a>
-
                     <a href="Blog.html" class="nav-link text-secondary1 font-medium hover:text-primary">Blog</a>
-                    <a href="Contato.html" class="nav-link text-secondary font-medium hover:text-primary">Contato</a>
+                  <!--   <a href="Contato.html" class="nav-link text-secondary font-medium hover:text-primary">Contato</a> -->
                 </nav>
                 
-    <!------------------------------------------------------------------------------------------->
-                 <!-- Botão de menu mobile -->
                 <div class="lg:hidden">
                     <button id="mobile-menu-button" class="text-secondary1 hover:text-primary focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -307,45 +261,36 @@
             </div>
         </div>
         
-        <!-- Menu mobile -->
         <div id="mobile-menu-overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
         <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-4/5 max-w-xs bg-white z-50 shadow-xl overflow-y-auto">
             <div class="p-4 border-b border-gray-200">
                 <div class="flex justify-between items-center">
-
-<!-------------------------------------------------->
-
                     <div class="logo-container">
                         <img src="Logo.png" alt="Logo Ortopedia Atelier" class="logo-img">
                     </div>
-
                     <style>
                         .logo-container {
-                        display: flex;
-                        align-items: center;
-                    }
+                            display: flex;
+                            align-items: center;
+                        }
 
-                    .logo-img {
-                        height: 48px;
-                        max-width: 100%;
-                    }
-
-                    
-                    .text-primary1 {
-                        --tw-text-opacity: 1;
-                        color: rgb(0 191 223 / var(--tw-text-opacity, 1));
-                        margin-bottom: 30px;
-                    }
-                    .w-81 {
-                        width: 3rem;
-                    }
-                    .h-81 {
-                        height: 3rem;
-                    }
+                        .logo-img {
+                            height: 48px;
+                            max-width: 100%;
+                        }
+                        
+                        .text-primary1 {
+                            --tw-text-opacity: 1;
+                            color: rgb(0 191 223 / var(--tw-text-opacity, 1));
+                            margin-bottom: 30px;
+                        }
+                        .w-81 {
+                            width: 3rem;
+                        }
+                        .h-81 {
+                            height: 3rem;
+                        }
                     </style>
-
-<!-------------------------------------------------->
-
                     <button id="close-mobile-menu" class="text-secondary hover:text-primary focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -362,7 +307,7 @@
                     </button>
                     <div class="mobile-dropdown-content pl-4">
                         <a href="NossaHistória.html" class="block py-2 text-secondary1 hover:text-primary">Nossa História</a>
-                        <a href="Equipe.html" class="block py-2 text-secondary1 hover:text-primary">Equipe</a>
+                    <!---    <a href="Equipe.html" class="block py-2 text-secondary1 hover:text-primary">Equipe</a> -->
                         <a href="Infraestrutura.html" class="block py-2 text-secondary1 hover:text-primary">Infraestrutura</a>
                     </div>
                 </div>
@@ -391,24 +336,15 @@
                     </div>
                 </div>
                 <a href="Reabilitação.html" class="block py-2 text-secondary1 hover:text-primary border-b border-gray-100">Reabilitação</a>
-
                 <a href="Blog.html" class="block py-2 text-secondary1 hover:text-primary border-b border-gray-100">Blog</a>
-              
-               
                 <div class="mt-6 flex justify-center space-x-4">
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    
+                    <a href="https://www.instagram.com/atelier.ortopedia/" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </header>
 
-
-
-
-<!------------------------------------------------------------------------------------------->
-
-    <!-- Page Header -->
     <div class="bg-secondary py-16 md:py-24">
         <div class="container mx-auto px-4">
             <div class="text-center">
@@ -424,15 +360,19 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <style>
+        #cor{
+            color: black;
+        }
+    </style>
     <div class="py-16 md:py-24">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="animate-fade-in">
                     <h2 class="text-2xl md:text-3xl font-bold text-secondary1 mb-6">Uma Jornada de Excelência em Ortopedia</h2>
-                    <p class="text-gray-700 mb-6">A Ortopedia Atelier nasceu do sonho de transformar vidas através da tecnologia ortopédica de ponta combinada com atendimento humanizado. Nossa história é marcada por dedicação, inovação e um compromisso inabalável com o bem-estar dos nossos pacientes.</p>
-                    <p class="text-gray-700 mb-6">Fundada em 1995 pelo Dr. Roberto Almeida, especialista em ortopedia e reabilitação, a clínica começou como um pequeno consultório no centro de São Paulo. Com uma visão pioneira, Dr. Roberto buscou unir o conhecimento técnico com a personalização no atendimento, tratando cada caso como único.</p>
-                    <p class="text-gray-700">Ao longo dos anos, expandimos nossas instalações e equipe, sempre mantendo nossos valores originais: excelência técnica, atendimento humanizado e inovação constante. Hoje, somos referência nacional em soluções ortopédicas personalizadas, ajudando milhares de pessoas a recuperarem sua mobilidade e qualidade de vida.</p>
+                    <p id="cor" class="text-gray-700 mb-6">A Ortopedia Atelier nasceu do sonho de transformar vidas através da tecnologia ortopédica de ponta combinada com atendimento humanizado. Nossa história é marcada por dedicação, inovação e um compromisso inabalável com o bem-estar dos nossos pacientes.</p>
+                    <p id="cor" class="text-gray-700 mb-6">Fundada em 1995 pelo Dr. Roberto Almeida, especialista em ortopedia e reabilitação, a clínica começou como um pequeno consultório no centro de São Paulo. Com uma visão pioneira, Dr. Roberto buscou unir o conhecimento técnico com a personalização no atendimento, tratando cada caso como único.</p>
+                    <p id="cor" class="text-gray-700">Ao longo dos anos, expandimos nossas instalações e equipe, sempre mantendo nossos valores originais: excelência técnica, atendimento humanizado e inovação constante. Hoje, somos referência nacional em soluções ortopédicas personalizadas, ajudando milhares de pessoas a recuperarem sua mobilidade e qualidade de vida.</p>
                 </div>
                 <div class="relative animate-fade-in animate-delay-1">
                     <div class="bg-primary rounded-tl-3xl rounded-br-3xl overflow-hidden shadow-xl">
@@ -468,41 +408,39 @@
                 </div>
             </div>
             
-            <!-- Timeline -->
             <div class="mt-20 md:mt-32">
-                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-12 text-center">Nossa Trajetória</h2>
+                <h2 id="cor" class="text-2xl md:text-3xl font-bold text-secondary mb-12 text-center">Nossa Trajetória</h2>
                 
                 <div class="space-y-12 max-w-3xl mx-auto">
                     <div class="timeline-item pb-12 animate-fade-in">
-                        <h3 class="text-xl font-bold text-secondary mb-2">1995 - O Início</h3>
-                        <p class="text-gray-700">Fundação da clínica pelo Dr. Roberto Almeida em um pequeno consultório no centro de São Paulo, com foco em atendimento personalizado e soluções ortopédicas sob medida.</p>
+                        <h3 id="cor" class="text-xl font-bold text-secondary mb-2">1995 - O Início</h3>
+                        <p id="cor" class="text-gray-700">Fundação da clínica pelo Dr. Roberto Almeida em um pequeno consultório no centro de São Paulo, com foco em atendimento personalizado e soluções ortopédicas sob medida.</p>
                     </div>
                     
                     <div class="timeline-item pb-12 animate-fade-in animate-delay-1">
-                        <h3 class="text-xl font-bold text-secondary mb-2">2002 - Expansão</h3>
-                        <p class="text-gray-700">Mudança para instalações maiores e ampliação da equipe técnica. Início da parceria com importantes convênios médicos, tornando nossos serviços acessíveis a mais pessoas.</p>
+                        <h3 id="cor" class="text-xl font-bold text-secondary mb-2">2002 - Expansão</h3>
+                        <p id="cor" class="text-gray-700">Mudança para instalações maiores e ampliação da equipe técnica. Início da parceria com importantes convênios médicos, tornando nossos serviços acessíveis a mais pessoas.</p>
                     </div>
                     
                     <div class="timeline-item pb-12 animate-fade-in animate-delay-2">
-                        <h3 class="text-xl font-bold text-secondary mb-2">2008 - Inovação Tecnológica</h3>
-                        <p class="text-gray-700">Implementação de tecnologias de ponta para confecção de próteses e órteses, incluindo escaneamento 3D e impressão digital, elevando a precisão e conforto de nossos produtos.</p>
+                        <h3 id="cor" class="text-xl font-bold text-secondary mb-2">2008 - Inovação Tecnológica</h3>
+                        <p id="cor" class="text-gray-700">Implementação de tecnologias de ponta para confecção de próteses e órteses, incluindo escaneamento 3D e impressão digital, elevando a precisão e conforto de nossos produtos.</p>
                     </div>
                     
                     <div class="timeline-item pb-12 animate-fade-in animate-delay-3">
-                        <h3 class="text-xl font-bold text-secondary mb-2">2015 - Centro de Excelência</h3>
-                        <p class="text-gray-700">Inauguração do atual Centro de Excelência em Ortopedia, integrando atendimento clínico, oficina ortopédica e centro de reabilitação em um único espaço.</p>
+                        <h3 id="cor" class="text-xl font-bold text-secondary mb-2">2015 - Centro de Excelência</h3>
+                        <p id="cor" class="text-gray-700">Inauguração do atual Centro de Excelência em Ortopedia, integrando atendimento clínico, oficina ortopédica e centro de reabilitação em um único espaço.</p>
                     </div>
                     
                     <div class="timeline-item animate-fade-in animate-delay-3">
-                        <h3 class="text-xl font-bold text-secondary mb-2">Hoje - Referência Nacional</h3>
-                        <p class="text-gray-700">Reconhecida como referência nacional em soluções ortopédicas personalizadas, a Ortopedia Atelier continua sua missão de transformar vidas através da combinação de tecnologia avançada e atendimento humanizado.</p>
+                        <h3 id="cor" class="text-xl font-bold text-secondary mb-2">Hoje - Referência Nacional</h3>
+                        <p id="cor" class="text-gray-700">Reconhecida como referência nacional em soluções ortopédicas personalizadas, a Ortopedia Atelier continua sua missão de transformar vidas através da combinação de tecnologia avançada e atendimento humanizado.</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Values -->
             <div class="mt-20 md:mt-32">
-                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-12 text-center">Nossos Valores</h2>
+                <h2 id="cor" class="text-2xl md:text-3xl font-bold text-secondary mb-12 text-center">Nossos Valores</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-lg text-center animate-fade-in">
@@ -540,25 +478,18 @@
                     <div class="bg-white p-6 rounded-lg shadow-lg text-center animate-fade-in animate-delay-3">
                         <div class="w-16 h-16 bg-primaryLight rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-81 h-81 text-primary1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-secondary1 mb-2">Personalização</h3>
-                        <p class="text-gray-7001">Desenvolvemos soluções sob medida para cada paciente, considerando suas necessidades específicas, estilo de vida e objetivos.</p>
+                        <h3 class="text-xl font-bold text-secondary1 mb-2">Comprometimento</h3>
+                        <p class="text-gray-7001">Nos dedicamos integralmente a cada caso, buscando os melhores resultados e a plena satisfação de quem confia em nosso trabalho.</p>
                     </div>
                 </div>
-            </div>
-            
-            <!-- CTA -->
-            <div class="mt-20 md:mt-32 bg-secondary rounded-lg p-8 md:p-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Faça Parte da Nossa História</h2>
-                <p class="text-white opacity-90 max-w-2xl mx-auto mb-8">Estamos comprometidos em continuar nossa jornada de excelência, ajudando cada vez mais pessoas a recuperarem sua mobilidade e qualidade de vida. Venha conhecer nossa clínica e descobrir como podemos ajudar você ou seu familiar.</p>
-                <a href="https://wa.me/5585999645990" class="inline-block bg-primary hover:bg-primaryDark text-white px-8 py-3 rounded-full font-medium transition-colors">Agendar uma Visita</a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+       <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -573,10 +504,8 @@
                         <a href="https://wa.me/5585999645990" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                        
+                        <a href="https://www.instagram.com/atelier.ortopedia/" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
 
@@ -601,7 +530,7 @@
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Início</a></li>
                         <li><a href="NossaHistória.html" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
-                        <li><a href="Equipe.html" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
+                      <!--  <li><a href="Equipe.html" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>-->
                         <li><a href="Próteses Estéticas.html" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
                         <li><a href="Órteses Sob Medida.html" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
                         <li><a href="Reabilitação.html" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
@@ -632,7 +561,7 @@
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
-                            <span class="text-gray-300">R. Carlos Vasconcelos, 2140 - Aldeota, <br>Fortaleza - CE, 60115-044</span>
+                            <span class="text-gray-300">Rua Carlos Vasconcelos, 2140 - Aldeota, Fortaleza/CE.<br>São Paulo - SP</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-primary"></i>
@@ -662,47 +591,39 @@
             </div>
         </div>
     </footer>
-
     <script>
-        // Menu Mobile Toggle
+        // Script para o menu mobile
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const closeMobileMenuButton = document.getElementById('close-mobile-menu');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileDropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.add('active');
             mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Evita rolagem do corpo quando o menu está aberto
         });
-        
-        function closeMobileMenu() {
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restaura a rolagem do corpo
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = '';
-        }
-        
-        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        
-        // Mobile Dropdowns
+        });
+
         mobileDropdownButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const dropdownContent = button.nextElementSibling;
-                const icon = button.querySelector('i');
-                
-                if (dropdownContent.classList.contains('active')) {
-                    dropdownContent.classList.remove('active');
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    dropdownContent.classList.add('active');
-                    icon.style.transform = 'rotate(180deg)';
-                }
+                dropdownContent.classList.toggle('active');
+                button.querySelector('.fa-chevron-down').classList.toggle('rotate-180');
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'947246ed10e1ba11',t:'MTc0ODQ4Mjc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-
-
-<!------------------------------------------------------------------------------------------->
+</body>
+</html>

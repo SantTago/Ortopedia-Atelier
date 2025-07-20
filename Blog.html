@@ -252,11 +252,21 @@
             padding-bottom: 15px;
             margin-top: -20px;
         }
+
+        .bg-gray-200 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+            max-width: 50%;
+            display: flex;
+            margin: auto;
+            margin-top: 10px;
+            /* text-align-last: center; */
+        }
     </style>
 </head>
 <body>
     <!-- Top Header -->
-<!----------------------------------------------------->
+<!---------------------------------------------------
 <div class="top-header hidden md:block text-white py-2">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -285,7 +295,7 @@
         </div>
     </div>
 </div>
-
+-->
     <!----------------------------------------------------------->
     <!-- Main Header -->
     <header class="main-header shadow-md sticky top-0 z-50">
@@ -328,7 +338,7 @@
                         </a>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-20">
                             <a href="NossaHistória.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Nossa História</a>
-                            <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>
+                          <!-- <a href="Equipe.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Equipe</a>--> 
                             <a href="Infraestrutura.html" class="block px-4 py-2 text-secondary hover:bg-primary hover:text-white">Infraestrutura</a>
                         </div>
                     </div>
@@ -397,7 +407,7 @@
                     </button>
                     <div class="mobile-dropdown-content pl-4">
                         <a href="NossaHistória.html" class="block py-2 text-secondary hover:text-primary">Nossa História</a>
-                        <a href="Equipe.html" class="block py-2 text-secondary hover:text-primary">Equipe</a>
+                     <!----   <a href="Equipe.html" class="block py-2 text-secondary hover:text-primary">Equipe</a> -->
                         <a href="Infraestrutura.html" class="block py-2 text-secondary hover:text-primary">Infraestrutura</a>
                     </div>
                 </div>
@@ -431,8 +441,8 @@
               
                
                 <div class="mt-6 flex justify-center space-x-4">
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                   
+                    <a href="https://www.instagram.com/atelier.ortopedia/" class="text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -442,6 +452,7 @@
 
 
 <!------------------------------------------------------------------------------------------->
+
 
 
 <!-- Page Header -->
@@ -457,151 +468,256 @@
         </div>
     </div>
 </div>
-<!------------------------------------------------------------------------------------------->
-<!-- Main Content -->
+<style>
+    .bg-gray-200 {
+        --tw-bg-opacity: 1;
+        background-color: white;
+        display: flex;
+        margin: 10px auto auto;
+        max-width: 100%; /* Ajustado para o carrossel */
+    }
+
+    @media (min-width: 1024px) {
+        .bg-gray-200 {
+            max-width: 50%; /* Restaura o tamanho para telas maiores */
+        }
+         .bg-gray-2001 {
+            max-width: 100%; /* Restaura o tamanho para telas maiores */
+        }
+    }
+
+    /* Estilo para a imagem única do primeiro blog */
+    .blog-image > div.bg-gray-200.h-96 {
+        height: 24rem; /* Equivalente a h-96, mantenha se desejar altura fixa em mobile */
+        /* Para que o carrossel tenha altura similar à imagem única em telas menores,
+           vamos definir uma altura mínima e usar object-fit */
+        min-height: 24rem; /* Garante que a imagem única tenha pelo menos 96 unidades de altura */
+    }
+
+
+    .carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    width: 100%;
+    height: 24rem; /* Adiciona uma altura fixa, igual à da primeira imagem */
+}
+    .carousel-image-wrapper {
+        flex: 0 0 100%;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        scroll-snap-align: center;
+        position: relative;
+        /* Remova ou ajuste o padding-bottom se quiser uma altura fixa como a do primeiro blog */
+        /* padding-bottom: 125%; */
+        height: 100%; /* Ajuste para que a wrapper preencha o min-height do container */
+        width: 100%; /* Garante que a wrapper ocupe a largura total disponível */
+    }
+
+    .carousel-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down; /* Esta linha faz a imagem cobrir o espaço, cortando se necessário */
+}
+
+    /* --- Estilos do Vídeo Vertical Responsivo (permanecem os mesmos) --- */
+    .video-container-vertical {
+        position: relative;
+        width: 80%;
+        max-width: 300px;
+        height: 0;
+        padding-bottom: 177.78%; /* Proporção 9:16 */
+        border-radius: 0.5rem;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        background-color: black;
+    }
+
+    .video-container-vertical iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+   
+
+    /* Adicione estilos para a barra de rolagem do carrossel para deixá-la mais discreta, se desejar */
+    .carousel-container::-webkit-scrollbar {
+        height: 8px; /* Altura da barra de rolagem */
+    }
+
+    .carousel-container::-webkit-scrollbar-track {
+        background: #ffffff; /* Cor de fundo da trilha */
+        border-radius: 10px;
+    }
+
+    .carousel-container::-webkit-scrollbar-thumb {
+        background: #00c8ff; /* Cor do "thumb" da barra de rolagem */
+        border-radius: 10px;
+    }
+
+    .carousel-container::-webkit-scrollbar-thumb:hover {
+        background: #00a1e6; /* Cor do "thumb" ao passar o mouse */
+    }
+    
+</style>
+
+
+
+
+
+<!------------------------------------------------------------------------------------>
+
+                <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="relative lg:w-1/2">
+                            <div class="blog-image">
+                                <div class="relative z-10 bg-gray-2001 rounded-lg overflow-hidden lg:h-auto">
+                                    <div class="bg-gray-200 carousel-container">
+                                        <div  class="carousel-image-wrapper">
+                                            <img src="midia/02.jpg" alt="Imagem 1">
+                                        </div>
+                                        <div class="carousel-image-wrapper">
+                                            <img  src="midia/03.jpg" alt="Imagem 2">
+                                        </div>
+                                        <div class="carousel-image-wrapper">
+                                            <img src="midia/04.jpg" alt="Imagem 3">
+                                        </div>
+                                         <div class="carousel-image-wrapper">
+                                            <img src="midia/05.jpg" alt="Imagem 4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:w-1/2 single-post-content">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <span class="flex items-center">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    16 de maio, 2025
+                                </span>
+                                <span class="mx-3">|</span>
+                               
+                            </div>
+                            <h2 class="text-2xl font-bold text-secondary mb-3">Cada detalhe importa quando falamos de recomeços.</h2>
+                            <p class="text-gray-700 mb-4 short-description">As próteses estéticas de silicone não devolvem apenas a aparência — elas resgatam a autoestima, a liberdade de movimento e o sorriso de quem passou por momentos difíceis.</p>
+                            <div class="full-content hidden">
+                                <p class="text-gray-700 mb-4"> Cada dedo é cuidadosamente modelado para refletir a individualidade e a história de cada paciente.
+                                    Por trás de cada imagem, existe uma conquista, um “eu posso” que se renova.
+
+                                    Cada prótese é única — feita especialmente para você.</p>
+                            </div>
+                            <button class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors toggle-content-btn">
+                                Ler mais
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+<!------------------------------------------------------------------------------------>
+
 <div class="py-16 md:py-24">
     <div class="container mx-auto px-4">
         <div class="flex flex-col lg:flex-row gap-8">
             <div id="all-posts" class="tab-content active">
+
                 <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
-                    <div class="relative">
-                        <div class="blog-image">
-                            <div class="relative z-10 bg-gray-200 h-96 rounded-lg overflow-hidden">
-                                <img src="https://lh3.googleusercontent.com/p/AF1QipNTmT3xjGPnJKRBjSZwKpzx1i9_mc-RogpQYRN-=s680-w680-h510-rw"
-                                    alt="Descrição da imagem da clínica" class="w-full h-full object-cover">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="relative lg:w-1/2">
+                            <div class="blog-image">
+                                <div class="relative z-10 bg-gray-200 h-96 rounded-lg overflow-hidden lg:h-auto">
+                                    <img src="midia/01.jpg"
+                                        alt="Descrição da imagem única" class="w-full h-full object-cover">
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="flex items-center">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                15 de Junho, 2023
-                            </span>
-                            <span class="mx-3">|</span>
-                            <span class="flex items-center">
-                                <i class="far fa-user mr-2"></i>
-                                Dr. Carlos Silva
-                            </span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-secondary mb-3">Avanços Tecnológicos em Próteses de Membros
-                            Inferiores</h2>
-                        <p class="text-gray-700 mb-4" id="short-description">Descubra como a tecnologia está
-                            revolucionando o desenvolvimento de próteses de membros inferiores, proporcionando mais
-                            conforto, funcionalidade e qualidade de vida para os pacientes.</p>
+                        <div class="p-6 lg:w-1/2 single-post-content">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <span class="flex items-center">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    13 de maio, 2025
+                                </span>
+                                <span class="mx-3">|</span>
+                                
+                            </div>
+                            <h2 class="text-2xl font-bold text-secondary mb-3">Quando o Colete 3D é o melhor aliado no tratamento da Escoliose?</h2>
+                            <p class="text-gray-700 mb-4 short-description">O Colete 3D é indicado principalmente quando a escoliose está em fase de crescimento ou evolução. Por ser feito sob medida com tecnologia de escaneamento corporal, ele oferece um ajuste perfeito, promovendo a correção postural de forma mais confortável e eficiente.</p>
+                            <div class="full-content hidden">
+                                <p class="text-gray-700 mb-4">
+                                <br>    ✅ Personalizado para cada paciente
+                                <br>    ✅ Mais leve, discreto e eficaz
+                                <br>    ✅ Ideal para crianças e adolescentes em fase de crescimento <br> <br><br>
 
-                        <div id="full-content" class="hidden">
-                            <p class="text-gray-700 mb-4">
-                                Os avanços recentes na ciência dos materiais e na robótica têm permitido a criação de
-                                próteses cada vez mais sofisticadas. Sensores de alta precisão, inteligência
-                                artificial e materiais leves como a fibra de carbono estão transformando a vida de
-                                amputados, oferecendo mobilidade aprimorada e controle intuitivo. Além disso, a
-                                integração com sistemas neurais promete um futuro onde as próteses se comunicarão
-                                diretamente com o cérebro, proporcionando uma experiência ainda mais natural.
-                            </p>
-                            <p class="text-gray-700 mb-4">
-                                Esses desenvolvimentos não apenas melhoram a capacidade física, mas também impactam
-                                positivamente a saúde mental e a reintegração social dos usuários, permitindo que
-                                retomem suas atividades diárias e hobbies com maior autonomia.
-                            </p>
-                        </div>
+                                    Sempre com orientação médica e acompanhamento profissional especializado!
 
-                        <button id="toggle-content-btn"
-                            class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors">
-                            Ler mais
-                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                        </button>
+                                   
+                            </div>
+                            <button class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors toggle-content-btn">
+                                Ler mais
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+<!------------------------------------------------------------------------------------>
+
+
+
+
+
             </div>
         </div>
     </div>
 </div>
-
-<div class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div id="all-posts" class="tab-content active">
-                <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
-                    <div class="relative">
-                        <div class="blog-image">
-                            <div class="relative z-10 bg-gray-200 h-96 rounded-lg overflow-hidden">
-                                <img src="https://lh3.googleusercontent.com/p/AF1QipNTmT3xjGPnJKRBjSZwKpzx1i9_mc-RogpQYRN-=s680-w680-h510-rw"
-                                    alt="Descrição da imagem da clínica" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="flex items-center">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                15 de Junho, 2023
-                            </span>
-                            <span class="mx-3">|</span>
-                            <span class="flex items-center">
-                                <i class="far fa-user mr-2"></i>
-                                Dr. Carlos Silva
-                            </span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-secondary mb-3">Avanços Tecnológicos em Próteses de Membros
-                            Inferiores</h2>
-                        <p class="text-gray-700 mb-4" id="short-description">Descubra como a tecnologia está
-                            revolucionando o desenvolvimento de próteses de membros inferiores, proporcionando mais
-                            conforto, funcionalidade e qualidade de vida para os pacientes.</p>
-
-                        <div id="full-content" class="hidden">
-                            <p class="text-gray-700 mb-4">
-                                Os avanços recentes na ciência dos materiais e na robótica têm permitido a criação de
-                                próteses cada vez mais sofisticadas. Sensores de alta precisão, inteligência
-                                artificial e materiais leves como a fibra de carbono estão transformando a vida de
-                                amputados, oferecendo mobilidade aprimorada e controle intuitivo. Além disso, a
-                                integração com sistemas neurais promete um futuro onde as próteses se comunicarão
-                                diretamente com o cérebro, proporcionando uma experiência ainda mais natural.
-                            </p>
-                            <p class="text-gray-700 mb-4">
-                                Esses desenvolvimentos não apenas melhoram a capacidade física, mas também impactam
-                                positivamente a saúde mental e a reintegração social dos usuários, permitindo que
-                                retomem suas atividades diárias e hobbies com maior autonomia.
-                            </p>
-                        </div>
-
-                        <button id="toggle-content-btn"
-                            class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors">
-                            Ler mais
-                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.getElementById('toggle-content-btn');
-        const fullContent = document.getElementById('full-content');
-        const shortDescription = document.getElementById('short-description');
+        const toggleButtons = document.querySelectorAll('.toggle-content-btn');
 
-        toggleButton.addEventListener('click', function () {
-            if (fullContent.classList.contains('hidden')) {
-                fullContent.classList.remove('hidden');
-                shortDescription.classList.add('hidden'); // Opcional: esconde a descrição curta
-                toggleButton.innerHTML = 'Recolher <i class="fas fa-arrow-up ml-2 text-sm"></i>';
-            } else {
-                fullContent.classList.add('hidden');
-                shortDescription.classList.remove('hidden'); // Opcional: mostra a descrição curta novamente
-                toggleButton.innerHTML = 'Ler mais <i class="fas fa-arrow-right ml-2 text-sm"></i>';
-            }
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const blogCard = this.closest('.blog-card');
+                const fullContent = blogCard.querySelector('.full-content');
+                const shortDescription = blogCard.querySelector('.short-description');
+
+                if (fullContent.classList.contains('hidden')) {
+                    fullContent.classList.remove('hidden');
+                    if (shortDescription) {
+                        shortDescription.classList.add('hidden');
+                    }
+                    this.innerHTML = 'Recolher <i class="fas fa-arrow-up ml-2 text-sm"></i>';
+                } else {
+                    fullContent.classList.add('hidden');
+                    if (shortDescription) {
+                        shortDescription.classList.remove('hidden');
+                    }
+                    this.innerHTML = 'Ver mais <i class="fas fa-arrow-right ml-2 text-sm"></i>';
+                }
+            });
         });
     });
 </script>
 
-<!------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
     <!-- Footer -->
     <footer class="bg-secondary text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
@@ -613,17 +729,13 @@
                     </div>
                     <p class="text-gray-300 mb-6">Soluções ortopédicas personalizadas com tecnologia de ponta e atendimento humanizado para transformar vidas.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+
+                        
+                        <a href="https://www.instagram.com/atelier.ortopedia/" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="bg-white bg-opacity-10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-youtube"></i>
+                        
+                       
                         </a>
                     </div>
                 </div>
@@ -636,7 +748,7 @@
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Início</a></li>
                         <li><a href="NossaHistória.html" class="text-gray-300 hover:text-primary transition-colors">Nossa História</a></li>
-                        <li><a href="Equipe.html" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li>
+                      <!----  <li><a href="Equipe.html" class="text-gray-300 hover:text-primary transition-colors">Equipe</a></li> -->
                         <li><a href="Próteses Estéticas.html" class="text-gray-300 hover:text-primary transition-colors">Próteses</a></li>
                         <li><a href="Órteses Sob Medida.html" class="text-gray-300 hover:text-primary transition-colors">Órteses</a></li>
                         <li><a href="Reabilitação.html" class="text-gray-300 hover:text-primary transition-colors">Reabilitação</a></li>
