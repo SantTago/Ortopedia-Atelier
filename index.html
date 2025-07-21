@@ -665,6 +665,219 @@
         </div>
     </section>
 
+    <!------------------------------------------------------------------------------------------>
+ 
+    
+    
+<!------------------------------------------------------------------------------------>
+
+
+
+
+<style>
+  
+
+    @media (min-width: 1024px) {
+       
+         .bg-gray-2001 {
+            max-width: 100%; /* Restaura o tamanho para telas maiores */
+        }
+    }
+
+    /* Estilo para a imagem única do primeiro blog */
+    .blog-image > div.bg-gray-200.h-96 {
+        height: 24rem; /* Equivalente a h-96, mantenha se desejar altura fixa em mobile */
+        /* Para que o carrossel tenha altura similar à imagem única em telas menores,
+           vamos definir uma altura mínima e usar object-fit */
+        min-height: 24rem; /* Garante que a imagem única tenha pelo menos 96 unidades de altura */
+    }
+
+
+    .carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    width: 100%;
+    height: 24rem; /* Adiciona uma altura fixa, igual à da primeira imagem */
+}
+    .carousel-image-wrapper {
+        flex: 0 0 100%;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        scroll-snap-align: center;
+        position: relative;
+        /* Remova ou ajuste o padding-bottom se quiser uma altura fixa como a do primeiro blog */
+        /* padding-bottom: 125%; */
+        height: 100%; /* Ajuste para que a wrapper preencha o min-height do container */
+        width: 100%; /* Garante que a wrapper ocupe a largura total disponível */
+    }
+
+    .carousel-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down; /* Esta linha faz a imagem cobrir o espaço, cortando se necessário */
+}
+
+    /* --- Estilos do Vídeo Vertical Responsivo (permanecem os mesmos) --- */
+    .video-container-vertical {
+        position: relative;
+        width: 80%;
+        max-width: 300px;
+        height: 0;
+        padding-bottom: 177.78%; /* Proporção 9:16 */
+        border-radius: 0.5rem;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        background-color: black;
+    }
+
+    .video-container-vertical iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+   
+
+    /* Adicione estilos para a barra de rolagem do carrossel para deixá-la mais discreta, se desejar */
+    .carousel-container::-webkit-scrollbar {
+        height: 8px; /* Altura da barra de rolagem */
+    }
+
+    .carousel-container::-webkit-scrollbar-track {
+        background: #ffffff; /* Cor de fundo da trilha */
+        border-radius: 10px;
+    }
+
+    .carousel-container::-webkit-scrollbar-thumb {
+        background: #00c8ff; /* Cor do "thumb" da barra de rolagem */
+        border-radius: 10px;
+    }
+
+    .carousel-container::-webkit-scrollbar-thumb:hover {
+        background: #00a1e6; /* Cor do "thumb" ao passar o mouse */
+    }
+    .w-full1{
+        display: flex;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .py-241 > h1{
+        padding: 20px;
+    }
+
+    @media (min-width: 1024px) {
+    .bg-gray-200 {
+        /* max-width: 50%; */
+    }
+}
+</style>
+
+<!--------------------------------------------------------------------------------------->
+
+<!-- Page Header -->
+<div class="bg-secondary  ">
+    <div class="container mx-auto px-4">
+        <div class="text-center py-241">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Blog</h1>
+           
+        </div>
+    </div>
+</div>
+
+                <div class="blog-card bg-white rounded-xl overflow-hidden shadow-lg mb-10 animate-fade-in">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="relative lg:w-1/2">
+                            <div class="blog-image">
+                                <div class="relative z-10 bg-gray-2001 rounded-lg overflow-hidden lg:h-auto">
+                                    <div class="bg-gray-200 carousel-container">
+                                        <div  class="carousel-image-wrapper">
+                                            <img src="midia/02.jpg" alt="Imagem 1">
+                                        </div>
+                                        <div class="carousel-image-wrapper">
+                                            <img  src="midia/03.jpg" alt="Imagem 2">
+                                        </div>
+                                        <div class="carousel-image-wrapper">
+                                            <img src="midia/04.jpg" alt="Imagem 3">
+                                        </div>
+                                         <div class="carousel-image-wrapper">
+                                            <img src="midia/05.jpg" alt="Imagem 4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:w-1/2 single-post-content">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <span class="flex items-center">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    16 de maio, 2025
+                                </span>
+                                <span class="mx-3">|</span>
+                               
+                            </div>
+                            <h2 class="text-2xl font-bold text-secondary mb-3">Cada detalhe importa quando falamos de recomeços.</h2>
+                            <p class="text-gray-700 mb-4 short-description">As próteses estéticas de silicone não devolvem apenas a aparência — elas resgatam a autoestima, a liberdade de movimento e o sorriso de quem passou por momentos difíceis.</p>
+                            <div class="full-content hidden">
+                                <p class="text-gray-700 mb-4"> Cada dedo é cuidadosamente modelado para refletir a individualidade e a história de cada paciente.
+                                    Por trás de cada imagem, existe uma conquista, um “eu posso” que se renova.
+
+                                    Cada prótese é única — feita especialmente para você.</p>
+                            </div>
+                            <button class="inline-flex items-center font-medium text-primary hover:text-primaryDark transition-colors toggle-content-btn">
+                                Ler mais
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                     <div>
+               <a href="Blog.html"> <button type="submit" class="w-full1 bg-[#273353] hover:bg-opacity-90 text-white font-medium py-3 px-6 rounded-lg transition duration-300">Confira outros posts</button> </a>
+            </div>
+                </div>
+
+
+                
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButtons = document.querySelectorAll('.toggle-content-btn');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const blogCard = this.closest('.blog-card');
+                const fullContent = blogCard.querySelector('.full-content');
+                const shortDescription = blogCard.querySelector('.short-description');
+
+                if (fullContent.classList.contains('hidden')) {
+                    fullContent.classList.remove('hidden');
+                    if (shortDescription) {
+                        shortDescription.classList.add('hidden');
+                    }
+                    this.innerHTML = 'Recolher <i class="fas fa-arrow-up ml-2 text-sm"></i>';
+                } else {
+                    fullContent.classList.add('hidden');
+                    if (shortDescription) {
+                        shortDescription.classList.remove('hidden');
+                    }
+                    this.innerHTML = 'Ver mais <i class="fas fa-arrow-right ml-2 text-sm"></i>';
+                }
+            });
+        });
+    });
+</script>
+
+
+<!------------------------------------------------------------------------------------>
+
+
+    <!------------------------------------------------------------------------------------------>
+
     <!-- Contador de Estatísticas -->
     <section class="py-16 bg-secondary text-white">
         <div class="container mx-auto px-4">
@@ -1508,7 +1721,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-primary"></i>
-                            <span class="text-gray-300">contato@ortopediaatelier.com.br</span>
+                            <span class="text-gray-300">atelier.ortopedia@gmail.com</span>
                         </li>
                         <li class="flex items-center">
                             <i class="far fa-clock mr-3 text-primary"></i>

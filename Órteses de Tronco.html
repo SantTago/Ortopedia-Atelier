@@ -733,46 +733,238 @@
                 <p class="text-gray-700">Nossas órteses são projetadas com tecnologia avançada e materiais de alta qualidade para oferecer o máximo de conforto, funcionalidade e durabilidade, permitindo que você mantenha sua qualidade de vida durante o tratamento.</p>
             </div>
             
-            <!-- Interactive Trunk Diagram -->
-            <div class="mb-20">
-                <div class="text-center mb-12 animate-fade-in animate-delay-1">
-                    <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Órteses para Cada Região da Coluna</h2>
-                    <p class="text-gray-700 max-w-3xl mx-auto">Explore nosso diagrama interativo para conhecer as diferentes órteses disponíveis para cada região da coluna vertebral.</p>
-                </div>
-                
-                <div class="relative max-w-4xl mx-auto h-[500px] md:h-[600px] bg-gray-50 rounded-xl p-4 animate-fade-in animate-delay-2">
-                    <!-- SVG Diagram of Spine -->
-                    <svg class="w-full h-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Cervical Spine -->
-                        <g id="cervical-group" class="cursor-pointer">
-                            <rect x="350" y="50" width="100" height="80" rx="10" class="spine-svg" />
-                            <text x="400" y="90" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Cervical</text>
-                        </g>
-                        
-                        <!-- Thoracic Spine -->
-                        <g id="thoracic-group" class="cursor-pointer">
-                            <rect x="350" y="180" width="100" height="120" rx="10" class="thoracic-svg" />
-                            <text x="400" y="240" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Torácica</text>
-                        </g>
-                        
-                        <!-- Lumbar Spine -->
-                        <g id="lumbar-group" class="cursor-pointer">
-                            <rect x="350" y="350" width="100" height="100" rx="10" class="lumbar-svg" />
-                            <text x="400" y="400" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Lombar</text>
-                        </g>
-                        
-                        <!-- Sacral Spine -->
-                        <g id="sacral-group" class="cursor-pointer">
-                            <rect x="350" y="500" width="100" height="60" rx="10" class="sacral-svg" />
-                            <text x="400" y="530" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Sacral</text>
-                        </g>
-                        
-                        <!-- Connecting Lines -->
-                        <line x1="400" y1="130" x2="400" y2="180" stroke="#273353" stroke-width="4" />
-                        <line x1="400" y1="300" x2="400" y2="350" stroke="#273353" stroke-width="4" />
-                        <line x1="400" y1="450" x2="400" y2="500" stroke="#273353" stroke-width="4" />
-                    </svg>
-                    
+
+
+
+
+        <!---------------------------------------------------------->
+<style>
+    /* Cores base em hexadecimal, para evitar conflitos com a paleta do seu Tailwind */
+    .text-secondary { color: #273353; } /* Equivalente a color-blue-dark */
+    .bg-secondary { background-color: #273353; } /* Equivalente a bg-blue-dark */
+    .bg-primary { background-color: #3A8DCD; } /* Equivalente a bg-blue-highlight */
+
+    /* Estilos para o overlay do pop-up, prefixados com ms- */
+    .ms-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6); /* Fundo um pouco mais escuro para melhor contraste */
+        display: flex;
+        align-items: center; /* Centraliza verticalmente em desktop */
+        justify-content: center; /* Centraliza horizontalmente em desktop */
+        z-index: 50;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .ms-popup-overlay:not(.hidden) {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Estilos para o conteúdo do pop-up (Desktop) */
+    .ms-popup-content {
+        background-color: white;
+        padding: 2rem; /* p-8 */
+        border-radius: 0.5rem; /* rounded-lg */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        max-width: 28rem; /* max-w-md */
+        width: 100%; /* Ocupa a largura total até o max-width */
+        margin: 1rem; /* mx-4 */
+        position: relative;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+
+    /* Quando o pop-up está visível, o conteúdo entra */
+    .ms-popup-overlay:not(.hidden) .ms-popup-content {
+        transform: translateY(0);
+    }
+
+    /* Estilos originais para o diagrama da coluna */
+    /* REMOVIDO TODO EFEITO DE HOVER */
+    .spine-svg,
+    .cervical-svg,
+    .thoracic-svg,
+    .lumbar-svg,
+    .sacral-svg {
+        fill: #3A8DCD; /* Cor original (seu azul claro) */
+        stroke: #273353;
+        stroke-width: 3;
+        /* A transição foi removida daqui, pois não há mais animação no hover */
+    }
+
+    /* MEDIA QUERY PARA CELULAR (telas menores que 767px) - Ajustes para o pop-up, mantendo a responsividade */
+    @media (max-width: 767px) {
+        .ms-popup-overlay {
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .ms-popup-content {
+            max-width: 100vw;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            border-radius: 0;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+            left: 0;
+            transform: translateY(0) translateX(0);
+        }
+    }
+
+    /* Classe utilitária para esconder elementos */
+   
+</style>
+
+<div class="mb-20">
+    <div class="text-center mb-12 animate-fade-in animate-delay-1">
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">Órteses para Cada Região da Coluna</h2>
+        <p class="text-gray-700 max-w-3xl mx-auto">Explore nosso diagrama interativo para conhecer as diferentes órteses disponíveis para cada região da coluna vertebral.</p>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto h-[500px] md:h-[600px] bg-gray-50 rounded-xl p-4 animate-fade-in animate-delay-2">
+        <svg class="w-full h-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+            <g id="cervical-group" class="cursor-pointer" data-part="cervical">
+                <rect x="350" y="50" width="100" height="80" rx="10" class="cervical-svg" />
+                <text x="400" y="90" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Cervical</text>
+            </g>
+            
+            <g id="thoracic-group" class="cursor-pointer" data-part="thoracic">
+                <rect x="350" y="180" width="100" height="120" rx="10" class="thoracic-svg" />
+                <text x="400" y="240" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Torácica</text>
+            </g>
+            
+            <g id="lumbar-group" class="cursor-pointer" data-part="lumbar">
+                <rect x="350" y="350" width="100" height="100" rx="10" class="lumbar-svg" />
+                <text x="400" y="400" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Lombar</text>
+            </g>
+            
+            <g id="sacral-group" class="cursor-pointer" data-part="sacral">
+                <rect x="350" y="500" width="100" height="60" rx="10" class="sacral-svg" />
+                <text x="400" y="530" text-anchor="middle" dominant-baseline="middle" class="text-lg font-bold text-secondary">Sacral</text>
+            </g>
+            
+            <line x1="400" y1="130" x2="400" y2="180" stroke="#273353" stroke-width="4" />
+            <line x1="400" y1="300" x2="400" y2="350" stroke="#273353" stroke-width="4" />
+            <line x1="400" y1="450" x2="400" y2="500" stroke="#273353" stroke-width="4" />
+        </svg>
+    </div>
+
+    <div id="cervical-popup" class="ms-popup-overlay hidden">
+        <div class="ms-popup-content">
+            <h3 class="text-xl font-bold mb-4 text-secondary">Órteses Cervicais</h3>
+            <p class="text-gray-700 mb-4">As órteses cervicais são usadas para imobilizar ou dar suporte ao pescoço após lesões, cirurgias, ou para aliviar a dor em condições crônicas. Elas ajudam a limitar o movimento, promover a cura e reduzir a tensão nos músculos do pescoço.</p>
+            <button class="ms-close-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">Fechar</button>
+        </div>
+    </div>
+
+    <div id="thoracic-popup" class="ms-popup-overlay hidden">
+        <div class="ms-popup-content">
+            <h3 class="text-xl font-bold mb-4 text-secondary">Órteses Torácicas</h3>
+            <p class="text-gray-700 mb-4">Órteses torácicas fornecem suporte à parte média e superior das costas, sendo indicadas para fraturas vertebrais, cifose, escoliose ou após cirurgias. Elas ajudam a alinhar a coluna, reduzir a dor e limitar movimentos que poderiam agravar a condição.</p>
+            <button class="ms-close-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">Fechar</button>
+        </div>
+    </div>
+
+    <div id="lumbar-popup" class="ms-popup-overlay hidden">
+        <div class="ms-popup-content">
+            <h3 class="text-xl font-bold mb-4 text-secondary">Órteses Lombares</h3>
+            <p class="text-gray-700 mb-4">As órteses lombares são projetadas para apoiar a parte inferior das costas, aliviando a dor em casos de hérnia de disco, lombalgia, instabilidade ou recuperação pós-cirúrgica. Elas oferecem compressão e estabilização para a região lombar, promovendo o conforto e a correção postural.</p>
+            <button class="ms-close-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">Fechar</button>
+        </div>
+    </div>
+
+    <div id="sacral-popup" class="ms-popup-overlay hidden">
+        <div class="ms-popup-content">
+            <h3 class="text-xl font-bold mb-4 text-secondary">Órteses Sacrais e Pélvicas</h3>
+            <p class="text-gray-700 mb-4">As órteses sacrais e pélvicas visam estabilizar a base da coluna e a região da pelve, sendo úteis para disfunções da articulação sacroilíaca, dor pélvica crônica ou após lesões. Elas fornecem compressão para reduzir a dor e melhorar a mobilidade.</p>
+            <button class="ms-close-btn bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleciona todos os grupos SVG clicáveis que terminam com "-group"
+        const spineGroups = document.querySelectorAll('svg g[id$="-group"]');
+
+        // Mapeia os nomes das partes aos seus respectivos pop-ups (IDs)
+        const popups = {
+            cervical: document.getElementById('cervical-popup'),
+            thoracic: document.getElementById('thoracic-popup'),
+            lumbar: document.getElementById('lumbar-popup'),
+            sacral: document.getElementById('sacral-popup')
+        };
+
+        // Seleciona todos os botões de fechar pop-up com a classe 'ms-close-btn'
+        const closeButtons = document.querySelectorAll('.ms-close-btn');
+
+        // Adiciona evento de clique para abrir o pop-up correspondente
+        spineGroups.forEach(group => {
+            group.addEventListener('click', function() {
+                const partName = this.dataset.part; // Obtém o valor do atributo data-part
+                if (popups.hasOwnProperty(partName)) {
+                    // Esconde todos os outros pop-ups antes de mostrar o atual
+                    Object.values(popups).forEach(p => {
+                        if (p && !p.classList.contains('hidden')) { // Verifica se p existe e não está oculto
+                            p.classList.add('hidden');
+                        }
+                    });
+                    if (popups[partName]) { // Verifica se o pop-up existe antes de tentar exibi-lo
+                        popups[partName].classList.remove('hidden'); // Mostra o pop-up
+                    }
+                }
+            });
+        });
+
+        // Adiciona evento de clique para fechar pop-up nos botões "Fechar"
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const parentPopup = this.closest('.ms-popup-overlay');
+                if (parentPopup) {
+                    parentPopup.classList.add('hidden');
+                }
+            });
+        });
+
+        // Adiciona evento de clique para fechar pop-up ao clicar fora do conteúdo
+        Object.values(popups).forEach(popup => {
+            if (popup) { // Verifica se o pop-up existe
+                popup.addEventListener('click', function(event) {
+                    // Verifica se o clique foi diretamente no overlay (e não no conteúdo do pop-up)
+                    if (event.target === this) {
+                        this.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    });
+</script>
+        <!---------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <!-- Information Panels -->
                     <div id="cervical-info" class="hidden absolute top-0 right-0 w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
                         <h3 class="text-xl font-bold text-secondary mb-3">Órteses Cervicais</h3>
